@@ -5,6 +5,17 @@
     <TargetFrameworkProfile />
     <RootNamespace>Balakin.VSOutputEnhancer.VsixPackage</RootNamespace>
     <AssemblyName>Balakin.VSOutputEnhancer.VsixPackage</AssemblyName>
+    <AssemblyTitle>Output enhancer VSIX package</AssemblyTitle>
+    <Description>Extension to add colors to Visual Studio output window.</Description>
+    <ComVisible>false</ComVisible>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyTrademarkAttribute>false</GenerateAssemblyTrademarkAttribute>
+    <GenerateAssemblyCultureAttribute>false</GenerateAssemblyCultureAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
     <VSSDKBuildToolsAutoSetup>true</VSSDKBuildToolsAutoSetup>
@@ -20,7 +31,6 @@
     <Compile Include="..\Build\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Update="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
   <ItemGroup>
