@@ -10,7 +10,6 @@
     <PackageReference Include="xunit" Version="2.1.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.1.0" />
     <PackageReference Include="FluentAssertions" Version="5.7.0" />
-    <PackageReference Include="NSubstitute" Version="2.0.2" />
     <PackageReference Include="VSSDK.Text" Version="11.0.4" />
   </ItemGroup>
   <ItemGroup>

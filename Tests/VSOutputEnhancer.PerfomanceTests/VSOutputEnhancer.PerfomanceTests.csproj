@@ -10,7 +10,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.1.0" />
     <PackageReference Include="FluentAssertions" Version="5.7.0" />
     <PackageReference Include="VSSDK.Text" Version="11.0.4" />
-    <PackageReference Include="System.IO.Compression" Version="4.0.0" />
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\VSOutputEnhancer.Logic\VSOutputEnhancer.Logic.csproj" />
