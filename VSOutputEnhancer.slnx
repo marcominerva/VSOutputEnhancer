@@ -1,0 +1,24 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="ARM" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Build/">
+    <File Path="Build/GlobalAssemblyInfo.cs" />
+    <File Path="global.json" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/VSOutputEnhancer.IntegrationTests/VSOutputEnhancer.IntegrationTests.csproj" />
+    <Project Path="Tests/VSOutputEnhancer.Logic.Tests/VSOutputEnhancer.Logic.Tests.csproj" />
+    <Project Path="Tests/VSOutputEnhancer.PerfomanceTests/VSOutputEnhancer.PerfomanceTests.csproj" />
+    <Project Path="Tests/VSOutputEnhancer.Tests.Base/VSOutputEnhancer.Tests.Base.csproj" />
+    <Project Path="Tests/VSOutputEnhancer.UI.Tests/VSOutputEnhancer.UI.Tests.csproj" />
+  </Folder>
+  <Project Path="VsixPackage/VsixPackage.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="VSOutputEnhancer.Logic/VSOutputEnhancer.Logic.csproj" />
+  <Project Path="VSOutputEnhancer.UI/VSOutputEnhancer.UI.csproj" />
+</Solution>

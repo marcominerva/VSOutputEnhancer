@@ -65,8 +65,8 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.0-previews-1-31410-273" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.5.38461">
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.14.40265" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.5.40034">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

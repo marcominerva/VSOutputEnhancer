@@ -13,7 +13,6 @@ using Balakin.VSOutputEnhancer.Tests.Base.Stubs;
 using FluentAssertions;
 using Microsoft.VisualStudio.Text.Classification;
 using Xunit;
-using Xunit.Abstractions;
 
 namespace Balakin.VSOutputEnhancer.PerfomanceTests
 {
