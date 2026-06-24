@@ -18,7 +18,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers.TestCases.NpmMessage
             return classifier;
         }
 
-        public abstract String Input { get; }
+        public abstract string Input { get; }
         public abstract ProcessedParsedData ExpectedResult { get; }
     }
 }

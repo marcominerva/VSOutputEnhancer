@@ -10,11 +10,8 @@ namespace Balakin.VSOutputEnhancer.UI.FormatDefinitions
     [Name(ClassificationType.BowerMessageError)]
     [UserVisible(false)]
     [Order(Before = Priority.Default)]
-    public sealed class BowerMessageErrorFormatDefinition : StyledClassificationFormatDefinition
+    [method: ImportingConstructor]
+    public sealed class BowerMessageErrorFormatDefinition(IStyleManager styleManager) : StyledClassificationFormatDefinition(styleManager)
     {
-        [ImportingConstructor]
-        public BowerMessageErrorFormatDefinition(IStyleManager styleManager) : base(styleManager)
-        {
-        }
     }
 }

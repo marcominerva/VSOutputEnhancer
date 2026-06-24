@@ -1,35 +1,33 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using Microsoft.VisualStudio.Text.Classification;
 
-namespace Balakin.VSOutputEnhancer.UI.FormatDefinitions
+namespace Balakin.VSOutputEnhancer.UI.FormatDefinitions;
+
+public class StyledClassificationFormatDefinition : ClassificationFormatDefinition
 {
-    public class StyledClassificationFormatDefinition : ClassificationFormatDefinition
+    private string GetClassificationTypeName()
     {
-        private String GetClassificationTypeName()
-        {
-            var type = GetType();
-            var attribute = type.GetCustomAttribute<ClassificationTypeAttribute>();
-            return attribute.ClassificationTypeNames;
-        }
+        var type = GetType();
+        var attribute = type.GetCustomAttribute<ClassificationTypeAttribute>();
+        return attribute.ClassificationTypeNames;
+    }
 
-        private readonly Lazy<String> classificationTypeName;
+    private readonly Lazy<string> classificationTypeName;
 
-        protected String ClassificationTypeName => classificationTypeName.Value;
+    protected string ClassificationTypeName => classificationTypeName.Value;
 
-        private StyledClassificationFormatDefinition()
-        {
-            classificationTypeName = new Lazy<String>(GetClassificationTypeName);
+    private StyledClassificationFormatDefinition()
+    {
+        classificationTypeName = new Lazy<string>(GetClassificationTypeName);
 
-            var displayName = Resources.ResourceManager.GetString($"FormatDisplayName_{ClassificationTypeName}");
-            DisplayName = displayName;
-        }
+        var displayName = Resources.ResourceManager.GetString($"FormatDisplayName_{ClassificationTypeName}");
+        DisplayName = displayName;
+    }
 
-        protected StyledClassificationFormatDefinition(IStyleManager styleManager) : this()
-        {
-            var style = styleManager.GetStyleForClassificationType(ClassificationTypeName);
-            ForegroundColor = style.ForegroundColor;
-            IsBold = style.Bold;
-        }
+    protected StyledClassificationFormatDefinition(IStyleManager styleManager) : this()
+    {
+        var style = styleManager.GetStyleForClassificationType(ClassificationTypeName);
+        ForegroundColor = style.ForegroundColor;
+        IsBold = style.Bold;
     }
 }

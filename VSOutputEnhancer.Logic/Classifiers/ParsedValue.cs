@@ -19,7 +19,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers
 
         public T Value { get; }
         public Span Span { get; }
-        public Boolean HasValue { get; }
+        public bool HasValue { get; }
 
         public static implicit operator T(ParsedValue<T> value)
         {

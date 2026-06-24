@@ -8,7 +8,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugException
     [Export(typeof(IParser<DebugExceptionData>))]
     public class DebugExceptionParser : IParser<DebugExceptionData>
     {
-        public Boolean TryParse(SnapshotSpan span, out DebugExceptionData result)
+        public bool TryParse(SnapshotSpan span, out DebugExceptionData result)
         {
             result = null;
             var text = span.GetText();

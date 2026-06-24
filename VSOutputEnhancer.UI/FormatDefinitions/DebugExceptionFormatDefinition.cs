@@ -10,11 +10,8 @@ namespace Balakin.VSOutputEnhancer.UI.FormatDefinitions
     [Name(ClassificationType.DebugException)]
     [UserVisible(false)]
     [Order(Before = Priority.Default)]
-    public sealed class DebugExceptionFormatDefinition : StyledClassificationFormatDefinition
+    [method: ImportingConstructor]
+    public sealed class DebugExceptionFormatDefinition(IStyleManager styleManager) : StyledClassificationFormatDefinition(styleManager)
     {
-        [ImportingConstructor]
-        public DebugExceptionFormatDefinition(IStyleManager styleManager) : base(styleManager)
-        {
-        }
     }
 }

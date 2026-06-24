@@ -6,6 +6,6 @@ namespace Balakin.VSOutputEnhancer.UI
     public struct FormatDefinitionStyle
     {
         public Color? ForegroundColor { get; set; }
-        public Boolean? Bold { get; set; }
+        public bool? Bold { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers.TestCases.BowerMessag
     [ExcludeFromCodeCoverage]
     public class PackageNotFound : TestCaseBase
     {
-        public override String Input { get; } = "bower bootstrap1#3.3.5       ENOTFOUND Package bootstrap1 not found\r\n";
+        public override string Input { get; } = "bower bootstrap1#3.3.5       ENOTFOUND Package bootstrap1 not found\r\n";
         public override ProcessedParsedData ExpectedResult { get; } = new ProcessedParsedData(new Span(39, 28), ClassificationType.BowerMessageError);
     }
 }

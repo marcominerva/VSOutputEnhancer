@@ -21,19 +21,19 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
             {
             }
 
-            public ParsedDataStub(ParsedValue<String> message, ParsedValue<TraceEventType> type)
+            public ParsedDataStub(ParsedValue<string> message, ParsedValue<TraceEventType> type)
             {
                 Message = message;
                 Type = type;
             }
 
-            public ParsedValue<String> Message { get; private set; }
+            public ParsedValue<string> Message { get; private set; }
             public ParsedValue<TraceEventType> Type { get; private set; }
         }
 
         [Theory]
         [MemberData(nameof(CreateTestData))]
-        public void Create(String message, String regex, ParsedDataStub expectedResult)
+        public void Create(string message, string regex, ParsedDataStub expectedResult)
         {
             var span = message.ToSnapshotSpan();
 
@@ -49,7 +49,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
                 "Text",
                 "(?<Message>.*)",
                 new ParsedDataStub(
-                    new ParsedValue<String>("Text", new Span(0, 4)),
+                    new ParsedValue<string>("Text", new Span(0, 4)),
                     new ParsedValue<TraceEventType>()
                 )
             };
@@ -59,7 +59,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
                 "Text Error",
                 "(?<Message>.*) (?<Type>.*)",
                 new ParsedDataStub(
-                    new ParsedValue<String>("Text", new Span(0, 4)),
+                    new ParsedValue<string>("Text", new Span(0, 4)),
                     new ParsedValue<TraceEventType>(TraceEventType.Error, new Span(5, 5))
                 )
             };

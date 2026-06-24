@@ -35,7 +35,7 @@ namespace Balakin.VSOutputEnhancer.PerfomanceTests
             // Small amount of classified text
 
             var content = await ReadTestData("EntityFrameworkBuild");
-            var spans = content.Select(StringExtensions.ToSnapshotSpan).ToList();
+            var spans = content.Select(stringExtensions.ToSnapshotSpan).ToList();
             var classifier = CreateBuildOutputClassifier();
             var totalCount = 0;
             var sw = Stopwatch.StartNew();
@@ -55,7 +55,7 @@ namespace Balakin.VSOutputEnhancer.PerfomanceTests
             // 100 000 warning/error messages
 
             var content = await ReadTestData("RandomBuildOutput");
-            var spans = content.Select(StringExtensions.ToSnapshotSpan).ToList();
+            var spans = content.Select(stringExtensions.ToSnapshotSpan).ToList();
             var classifier = CreateBuildOutputClassifier();
             var totalCount = 0;
             var sw = Stopwatch.StartNew();
@@ -76,15 +76,15 @@ namespace Balakin.VSOutputEnhancer.PerfomanceTests
             return classifier;
         }
 
-        private void WriteMessage(String message)
+        private void WriteMessage(string message)
         {
             Console.WriteLine(message);
             testOutputHelper.WriteLine(message);
         }
 
-        private async Task<IReadOnlyList<String>> ReadTestData(String name)
+        private async Task<IReadOnlyList<string>> ReadTestData(string name)
         {
-            var result = new List<String>();
+            var result = new List<string>();
 
             var zipFilePath = Path.Combine("Resources", name + ".zip");
             using (var zipFile = ZipFile.OpenRead(zipFilePath))

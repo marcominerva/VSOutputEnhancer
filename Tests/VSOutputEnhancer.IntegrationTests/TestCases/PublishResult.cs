@@ -8,9 +8,9 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests.TestCases
     [ExcludeFromCodeCoverage]
     public class PublishResult : ITestCase
     {
-        public String ContentType { get; } = Logic.ContentType.BuildOrderOutput;
+        public string ContentType { get; } = Logic.ContentType.BuildOrderOutput;
 
-        public IReadOnlyList<String> SourceText { get; } = new[]
+        public IReadOnlyList<string> SourceText { get; } = new[]
         {
             "1>------ Build started: Project: WebDemo, Configuration: Release Any CPU ------\r\n",
             "1>  WebDemo -> C:\\test\\WebDemo\\bin\\WebDemo.dll\r\n",

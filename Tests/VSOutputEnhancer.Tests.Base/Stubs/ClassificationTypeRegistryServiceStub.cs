@@ -10,12 +10,12 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
     [ExcludeFromCodeCoverage]
     public class ClassificationTypeRegistryServiceStub : IClassificationTypeRegistryService
     {
-        public IClassificationType GetClassificationType(String type)
+        public IClassificationType GetClassificationType(string type)
         {
             return new ClassificationTypeStub(type);
         }
 
-        public IClassificationType CreateClassificationType(String type, IEnumerable<IClassificationType> baseTypes)
+        public IClassificationType CreateClassificationType(string type, IEnumerable<IClassificationType> baseTypes)
         {
             throw new NotImplementedException();
         }

@@ -11,14 +11,14 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.NpmMessage
         {
         }
 
-        public NpmMessageData(ParsedValue<MessageType> type, ParsedValue<String> message)
+        public NpmMessageData(ParsedValue<MessageType> type, ParsedValue<string> message)
         {
             Type = type;
             Message = message;
         }
 
         public ParsedValue<MessageType> Type { get; set; }
-        public ParsedValue<String> Message { get; set; }
+        public ParsedValue<string> Message { get; set; }
 
         protected override void Fill(Match match, Span originalSpan)
         {

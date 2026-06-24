@@ -8,9 +8,9 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests.TestCases
     [ExcludeFromCodeCoverage]
     public class BuildOutput : ITestCase
     {
-        public String ContentType { get; } = Logic.ContentType.BuildOutput;
+        public string ContentType { get; } = Logic.ContentType.BuildOutput;
 
-        public IReadOnlyList<String> SourceText { get; } = new[]
+        public IReadOnlyList<string> SourceText { get; } = new[]
         {
             "------ Build started: Project: ConsoleDemo, Configuration: Debug Any CPU ------\r\n",
             "C:\\test\\ConsoleDemo\\Program.cs: warning CS0168: The variable 'ex' is declared but never used\r\n",

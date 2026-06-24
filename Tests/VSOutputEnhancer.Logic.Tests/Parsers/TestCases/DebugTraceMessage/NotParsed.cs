@@ -7,7 +7,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.DebugTraceMessa
     [ExcludeFromCodeCoverage]
     public class NotParsed : TestCaseBase
     {
-        public override String Input { get; } = "Some message\r\n";
+        public override string Input { get; } = "Some message\r\n";
         public override DebugTraceMessageData ExpectedResult { get; } = null;
     }
 }

@@ -7,7 +7,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.NpmMessage
     [ExcludeFromCodeCoverage]
     public class NoMessageType : TestCaseBase
     {
-        public override String Input { get; } = "npm \r\n";
+        public override string Input { get; } = "npm \r\n";
         public override NpmMessageData ExpectedResult { get; } = null;
     }
 }

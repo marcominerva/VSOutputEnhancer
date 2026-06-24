@@ -16,23 +16,16 @@ namespace Balakin.VSOutputEnhancer.Logic
     [ContentType(ContentType.Output)]
 #if DEBUG
     [ContentType(ContentType.Text)]
+    [method: ImportingConstructor]
 #endif
-    public class ClassifierProvider : IClassifierProvider
+    public class ClassifierProvider(
+        IClassificationTypeService classificationTypeService,
+        [ImportMany] IEnumerable<ISpanClassifier> spanClassifiers,
+        [ImportMany] IEnumerable<IEventHandler> eventHandlers) : IClassifierProvider
     {
-        private readonly IClassificationTypeService classificationTypeService;
-        private readonly IEnumerable<ISpanClassifier> spanClassifiers;
-        private readonly IEnumerable<IEventHandler> eventHandlers;
-
-        [ImportingConstructor]
-        public ClassifierProvider(
-            IClassificationTypeService classificationTypeService,
-            [ImportMany] IEnumerable<ISpanClassifier> spanClassifiers,
-            [ImportMany] IEnumerable<IEventHandler> eventHandlers)
-        {
-            this.spanClassifiers = spanClassifiers;
-            this.eventHandlers = eventHandlers;
-            this.classificationTypeService = classificationTypeService;
-        }
+        private readonly IClassificationTypeService classificationTypeService = classificationTypeService;
+        private readonly IEnumerable<ISpanClassifier> spanClassifiers = spanClassifiers;
+        private readonly IEnumerable<IEventHandler> eventHandlers = eventHandlers;
 
         public IClassifier GetClassifier(ITextBuffer textBuffer)
         {
@@ -68,15 +61,15 @@ namespace Balakin.VSOutputEnhancer.Logic
 
         private IEnumerable<T> FilterByContentType<T>(
             IEnumerable<T> collection,
-            Func<T, IEnumerable<String>> getContentTypes,
+            Func<T, IEnumerable<string>> getContentTypes,
             IContentType contentType)
         {
             return collection.Where(item => getContentTypes(item).Any(t => IsApplicable(contentType, t)));
         }
 
-        private Boolean IsApplicable(IContentType target, String contentType)
+        private bool IsApplicable(IContentType target, string contentType)
         {
-            if (String.Equals(target.TypeName, contentType, StringComparison.Ordinal))
+            if (string.Equals(target.TypeName, contentType, StringComparison.Ordinal))
             {
                 return true;
             }

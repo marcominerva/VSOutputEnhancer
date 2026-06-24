@@ -6,11 +6,11 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BowerMessage
 {
     public class BowerMessageData : ParsedData
     {
-        public ParsedValue<String> PackageName { get; set; }
-        public ParsedValue<String> PackageVersion { get; set; }
+        public ParsedValue<string> PackageName { get; set; }
+        public ParsedValue<string> PackageVersion { get; set; }
         public ParsedValue<MessageType> Type { get; set; }
-        public ParsedValue<String> ErrorCode { get; set; }
-        public ParsedValue<String> Message { get; set; }
+        public ParsedValue<string> ErrorCode { get; set; }
+        public ParsedValue<string> Message { get; set; }
 
         protected override void Fill(Match match, Span originalSpan)
         {

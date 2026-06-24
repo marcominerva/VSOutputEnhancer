@@ -7,7 +7,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers.TestCases.DebugExcept
     [ExcludeFromCodeCoverage]
     public class Exception : TestCaseBase
     {
-        public override String Input { get; } = "Exception thrown: 'System.Exception' in VSOutputEnhancerDemo.exe\r\n";
+        public override string Input { get; } = "Exception thrown: 'System.Exception' in VSOutputEnhancerDemo.exe\r\n";
         public override ProcessedParsedData ExpectedResult { get; } = new ProcessedParsedData(new Span(0, 66), ClassificationType.DebugException);
     }
 }

@@ -16,7 +16,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
             var classificationType = typeof(ClassificationType);
             var allTypes = classificationType.GetFields(BindingFlags.Static | BindingFlags.Public)
                 .Where(f => (f.Attributes & FieldAttributes.Literal) == FieldAttributes.Literal)
-                .Where(f => f.FieldType == typeof(String))
+                .Where(f => f.FieldType == typeof(string))
                 .Select(f => f.GetValue(null));
             var typesThatAllNotContains = allTypes.Except(ClassificationType.All);
             typesThatAllNotContains.Should().BeEmpty("All classification types should be added to ClassificationType.All");

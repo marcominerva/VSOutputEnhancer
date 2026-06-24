@@ -1,17 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.Text;
+﻿using Microsoft.VisualStudio.Text;
 
 namespace Balakin.VSOutputEnhancer.Logic
 {
-    public class ProcessedParsedData
+    public class ProcessedParsedData(Span span, string classificationName)
     {
-        public ProcessedParsedData(Span span, String classificationName)
-        {
-            Span = span;
-            ClassificationName = classificationName;
-        }
-
-        public Span Span { get; }
-        public String ClassificationName { get; }
+        public Span Span { get; } = span;
+        public string ClassificationName { get; } = classificationName;
     }
 }

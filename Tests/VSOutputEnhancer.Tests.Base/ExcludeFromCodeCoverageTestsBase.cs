@@ -25,7 +25,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base
             return GetType().Assembly;
         }
 
-        private Boolean IsExcludedFromCodeCoverage(Type t)
+        private bool IsExcludedFromCodeCoverage(Type t)
         {
             var attribute = t.GetCustomAttribute<ExcludeFromCodeCoverageAttribute>();
             if (attribute != null)

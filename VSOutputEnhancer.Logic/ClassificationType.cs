@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace Balakin.VSOutputEnhancer.Logic
+﻿namespace Balakin.VSOutputEnhancer.Logic
 {
     public static class ClassificationType
     {
-        public static readonly String[] All = new[]
-        {
+        public static readonly string[] All =
+        [
             BuildMessageError,
             BuildMessageWarning,
             BuildResultFailed,
@@ -21,28 +19,28 @@ namespace Balakin.VSOutputEnhancer.Logic
             NpmMessageWarning,
             NpmMessageError,
             BowerMessageError
-        };
+        ];
 
-        public const String BuildMessageError = "BuildMessageError";
-        public const String BuildMessageWarning = "BuildMessageWarning";
+        public const string BuildMessageError = "BuildMessageError";
+        public const string BuildMessageWarning = "BuildMessageWarning";
 
-        public const String BuildResultFailed = "BuildResultFailed";
-        public const String BuildResultSucceeded = "BuildResultSucceeded";
+        public const string BuildResultFailed = "BuildResultFailed";
+        public const string BuildResultSucceeded = "BuildResultSucceeded";
 
-        public const String PublishResultFailed = "PublishResultFailed";
-        public const String PublishResultSucceeded = "PublishResultSucceeded";
+        public const string PublishResultFailed = "PublishResultFailed";
+        public const string PublishResultSucceeded = "PublishResultSucceeded";
 
-        public const String DebugTraceError = "DebugTraceError";
-        public const String DebugTraceWarning = "DebugTraceWarning";
-        public const String DebugTraceInformation = "DebugTraceInformation";
-        public const String DebugException = "DebugException";
+        public const string DebugTraceError = "DebugTraceError";
+        public const string DebugTraceWarning = "DebugTraceWarning";
+        public const string DebugTraceInformation = "DebugTraceInformation";
+        public const string DebugException = "DebugException";
 
-        public const String NpmResultFailed = "NpmResultFailed";
-        public const String NpmResultSucceeded = "NpmResultSucceeded";
+        public const string NpmResultFailed = "NpmResultFailed";
+        public const string NpmResultSucceeded = "NpmResultSucceeded";
 
-        public const String NpmMessageWarning = "NpmMessageWarning";
-        public const String NpmMessageError = "NpmMessageError";
+        public const string NpmMessageWarning = "NpmMessageWarning";
+        public const string NpmMessageError = "NpmMessageError";
 
-        public const String BowerMessageError = "BowerMessageError";
+        public const string BowerMessageError = "BowerMessageError";
     }
 }

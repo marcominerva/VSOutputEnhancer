@@ -10,7 +10,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.BuildFileRelate
     {
         public IParser<BuildFileRelatedMessageData> CreateParser() => new BuildFileRelatedMessageParser();
 
-        public abstract String Input { get; }
+        public abstract string Input { get; }
         public abstract BuildFileRelatedMessageData ExpectedResult { get; }
     }
 }

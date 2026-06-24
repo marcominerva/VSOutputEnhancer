@@ -7,7 +7,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.BuildResult
     [ExcludeFromCodeCoverage]
     public class NoProjectNumber : TestCaseBase
     {
-        public override String Input { get; } = "========== Build: bla bla ==========\r\n";
+        public override string Input { get; } = "========== Build: bla bla ==========\r\n";
         public override BuildResultData ExpectedResult { get; } = null;
     }
 }

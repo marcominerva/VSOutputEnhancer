@@ -8,19 +8,19 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
     [ExcludeFromCodeCoverage]
     public class ClassificationTypeStub : IClassificationType
     {
-        private readonly String type;
+        private readonly string type;
 
-        public ClassificationTypeStub(String type)
+        public ClassificationTypeStub(string type)
         {
             this.type = type;
         }
 
-        public Boolean IsOfType(String type)
+        public bool IsOfType(string type)
         {
             return this.type.Equals(type, StringComparison.OrdinalIgnoreCase);
         }
 
-        public String Classification => type;
+        public string Classification => type;
 
         public IEnumerable<IClassificationType> BaseTypes
         {

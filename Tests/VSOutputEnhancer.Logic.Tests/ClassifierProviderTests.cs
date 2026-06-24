@@ -21,7 +21,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
         [Theory]
         [InlineData(ContentType.BuildOutput)]
         [InlineData(ContentType.DebugOutput)]
-        public void GetClassifierReturnsNotNull(String contentType)
+        public void GetClassifierReturnsNotNull(string contentType)
         {
             var provider = CreateClassifierProvider();
             var textBuffer = CreateTextBuffer(contentType);
@@ -31,7 +31,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
 
         [Theory]
         [InlineData("UnknownContentType")]
-        public void GetClassifierReturnsNull(String contentType)
+        public void GetClassifierReturnsNull(string contentType)
         {
             var provider = CreateClassifierProvider();
             var textBuffer = CreateTextBuffer(contentType);
@@ -44,7 +44,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
             return serviceProvider.GetService<IClassifierProvider>();
         }
 
-        private ITextBuffer CreateTextBuffer(String contentType)
+        private ITextBuffer CreateTextBuffer(string contentType)
         {
             return new TextBufferStub(contentType);
         }

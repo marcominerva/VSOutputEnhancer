@@ -9,7 +9,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.BuildResult
     [ExcludeFromCodeCoverage]
     public class Build : TestCaseBase
     {
-        public override String Input { get; } = "========== Build: 302 succeeded, 41 failed, 16 up-to-date, 5 skipped ==========\r\n";
+        public override string Input { get; } = "========== Build: 302 succeeded, 41 failed, 16 up-to-date, 5 skipped ==========\r\n";
 
         public override BuildResultData ExpectedResult { get; } = new BuildResultData(
             new ParsedValue<Int32>(302, new Span(18, 3)),

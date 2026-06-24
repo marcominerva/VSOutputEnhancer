@@ -21,7 +21,7 @@ namespace Balakin.VSOutputEnhancer.UI.Tests.UnitTests
             var styleManager = CreateStyleManager(theme);
 
             var stylesField = styleManager.GetType().GetField("styles", BindingFlags.Instance | BindingFlags.NonPublic);
-            var styles = (Lazy<IDictionary<String, FormatDefinitionStyle>>) stylesField.GetValue(styleManager);
+            var styles = (Lazy<IDictionary<string, FormatDefinitionStyle>>) stylesField.GetValue(styleManager);
             styles.Value.Should().NotBeEmpty();
         }
 
@@ -72,7 +72,7 @@ namespace Balakin.VSOutputEnhancer.UI.Tests.UnitTests
             notChecked.Should().BeEmpty("All classification type styles should be checked");
         }
 
-        private void TestSimilarColors(ICollection<FormatDefinitionStyle> styles, String groupName)
+        private void TestSimilarColors(ICollection<FormatDefinitionStyle> styles, string groupName)
         {
             var foregroundColors = styles.Select(s => s.ForegroundColor).Distinct();
             foregroundColors.Should().HaveCount(1, $"All styles in group \"{groupName}\" should have the same color");

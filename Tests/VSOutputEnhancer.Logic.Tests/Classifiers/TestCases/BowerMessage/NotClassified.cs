@@ -6,7 +6,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers.TestCases.BowerMessag
     [ExcludeFromCodeCoverage]
     public class NotClassified : TestCaseBase
     {
-        public override String Input { get; } = "Some message\r\n";
+        public override string Input { get; } = "Some message\r\n";
         public override ProcessedParsedData ExpectedResult { get; } = null;
     }
 }

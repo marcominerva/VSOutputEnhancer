@@ -6,21 +6,14 @@ using Microsoft.VisualStudio.Text.Classification;
 
 namespace Balakin.VSOutputEnhancer.Logic
 {
-    public class Classifier : IClassifier
+    public class Classifier(
+        IDispatcher dispatcher,
+        IReadOnlyCollection<ISpanClassifier> spanClassifiers,
+        IClassificationTypeService classificationTypeService) : IClassifier
     {
-        private readonly IDispatcher dispatcher;
-        private readonly IReadOnlyCollection<ISpanClassifier> spanClassifiers;
-        private readonly IClassificationTypeService classificationTypeService;
-
-        public Classifier(
-            IDispatcher dispatcher,
-            IReadOnlyCollection<ISpanClassifier> spanClassifiers,
-            IClassificationTypeService classificationTypeService)
-        {
-            this.dispatcher = dispatcher;
-            this.spanClassifiers = spanClassifiers;
-            this.classificationTypeService = classificationTypeService;
-        }
+        private readonly IDispatcher dispatcher = dispatcher;
+        private readonly IReadOnlyCollection<ISpanClassifier> spanClassifiers = spanClassifiers;
+        private readonly IClassificationTypeService classificationTypeService = classificationTypeService;
 
         public IList<ClassificationSpan> GetClassificationSpans(SnapshotSpan span)
         {

@@ -7,7 +7,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.NpmResult
     [ExcludeFromCodeCoverage]
     public class NotExitCode : TestCaseBase
     {
-        public override String Input { get; } = "====npm command completed with exit code asdf====\r\n";
+        public override string Input { get; } = "====npm command completed with exit code asdf====\r\n";
         public override NpmResultData ExpectedResult { get; } = null;
     }
 }

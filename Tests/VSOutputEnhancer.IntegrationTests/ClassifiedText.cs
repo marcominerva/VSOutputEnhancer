@@ -6,10 +6,10 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests
     [ExcludeFromCodeCoverage]
     public struct ClassifiedText
     {
-        public String ClassificationType { get; }
-        public String Text { get; }
+        public string ClassificationType { get; }
+        public string Text { get; }
 
-        public ClassifiedText(String classificationType, String text)
+        public ClassifiedText(string classificationType, string text)
         {
             ClassificationType = classificationType;
             Text = text;

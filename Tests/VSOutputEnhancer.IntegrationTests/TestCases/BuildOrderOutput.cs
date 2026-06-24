@@ -8,9 +8,9 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests.TestCases
     [ExcludeFromCodeCoverage]
     public class BuildOrderOutput : ITestCase
     {
-        public String ContentType { get; } = Logic.ContentType.BuildOrderOutput;
+        public string ContentType { get; } = Logic.ContentType.BuildOrderOutput;
 
-        public IReadOnlyList<String> SourceText { get; } = new[]
+        public IReadOnlyList<string> SourceText { get; } = new[]
         {
             "1>------ Build started: Project: ConsoleDemo, Configuration: Debug Any CPU ------\r\n",
             "2>------ Build started: Project: WebDemo, Configuration: Debug Any CPU ------\r\n",

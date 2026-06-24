@@ -10,11 +10,8 @@ namespace Balakin.VSOutputEnhancer.UI.FormatDefinitions
     [Name(ClassificationType.DebugTraceWarning)]
     [UserVisible(false)]
     [Order(Before = Priority.Default)]
-    public sealed class DebugTraceWarningFormatDefinition : StyledClassificationFormatDefinition
+    [method: ImportingConstructor]
+    public sealed class DebugTraceWarningFormatDefinition(IStyleManager styleManager) : StyledClassificationFormatDefinition(styleManager)
     {
-        [ImportingConstructor]
-        public DebugTraceWarningFormatDefinition(IStyleManager styleManager) : base(styleManager)
-        {
-        }
     }
 }

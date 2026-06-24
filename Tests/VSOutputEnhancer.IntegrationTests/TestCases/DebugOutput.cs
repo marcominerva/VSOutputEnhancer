@@ -8,9 +8,9 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests.TestCases
     [ExcludeFromCodeCoverage]
     public class DebugOutput : ITestCase
     {
-        public String ContentType { get; } = Logic.ContentType.DebugOutput;
+        public string ContentType { get; } = Logic.ContentType.DebugOutput;
 
-        public IReadOnlyList<String> SourceText { get; } = new[]
+        public IReadOnlyList<string> SourceText { get; } = new[]
         {
             "'ConsoleDemo.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\\GAC_32\\mscorlib\\v4.0_4.0.0.0__b77a5c561934e089\\mscorlib.dll'. Skipped loading symbols.\r\n",
             "'ConsoleDemo.exe' (CLR v4.0.30319: DefaultDomain): Loaded 'C:\\test\\ConsoleDemo\\bin\\Debug\\ConsoleDemo.exe'. Symbols loaded.\r\n",

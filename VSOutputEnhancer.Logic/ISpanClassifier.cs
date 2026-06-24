@@ -6,7 +6,7 @@ namespace Balakin.VSOutputEnhancer.Logic
 {
     public interface ISpanClassifier
     {
-        IEnumerable<String> ContentTypes { get; }
+        IEnumerable<string> ContentTypes { get; }
         IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, IDispatcher dispatcher);
     }
 }

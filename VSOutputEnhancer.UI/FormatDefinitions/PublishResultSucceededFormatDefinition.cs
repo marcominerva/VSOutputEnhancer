@@ -10,11 +10,8 @@ namespace Balakin.VSOutputEnhancer.UI.FormatDefinitions
     [Name(ClassificationType.PublishResultSucceeded)]
     [UserVisible(false)]
     [Order(Before = Priority.Default)]
-    public sealed class PublishResultSucceededFormatDefinition : StyledClassificationFormatDefinition
+    [method: ImportingConstructor]
+    public sealed class PublishResultSucceededFormatDefinition(IStyleManager styleManager) : StyledClassificationFormatDefinition(styleManager)
     {
-        [ImportingConstructor]
-        public PublishResultSucceededFormatDefinition(IStyleManager styleManager) : base(styleManager)
-        {
-        }
     }
 }

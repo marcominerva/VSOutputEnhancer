@@ -6,14 +6,10 @@ using Microsoft.VisualStudio.Text;
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers.NpmResult
 {
     [Export(typeof(ISpanClassifier))]
-    public class NpmResultClassifier : ParserBasedSpanClassifier<NpmResultData>
+    [method: ImportingConstructor]
+    public class NpmResultClassifier(IParser<NpmResultData> parser) : ParserBasedSpanClassifier<NpmResultData>(parser)
     {
-        [ImportingConstructor]
-        public NpmResultClassifier(IParser<NpmResultData> parser) : base(parser)
-        {
-        }
-
-        public override IEnumerable<String> ContentTypes { get; } = new[]
+        public override IEnumerable<string> ContentTypes { get; } = new[]
         {
             ContentType.Output,
             ContentType.BuildOutput,

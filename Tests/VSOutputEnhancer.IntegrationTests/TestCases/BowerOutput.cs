@@ -8,9 +8,9 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests.TestCases
     [ExcludeFromCodeCoverage]
     public class BowerOutput : ITestCase
     {
-        public String ContentType { get; } = Logic.ContentType.Output;
+        public string ContentType { get; } = Logic.ContentType.Output;
 
-        public IReadOnlyList<String> SourceText { get; } = new[]
+        public IReadOnlyList<string> SourceText { get; } = new[]
         {
             "bower bootstrap1#3.3.5       ENOTFOUND Package bootstrap1 not found\r\n"
         };

@@ -10,11 +10,8 @@ namespace Balakin.VSOutputEnhancer.UI.FormatDefinitions
     [Name(ClassificationType.NpmMessageWarning)]
     [UserVisible(false)]
     [Order(Before = Priority.Default)]
-    public sealed class NpmMessageWarningFormatDefinition : StyledClassificationFormatDefinition
+    [method: ImportingConstructor]
+    public sealed class NpmMessageWarningFormatDefinition(IStyleManager styleManager) : StyledClassificationFormatDefinition(styleManager)
     {
-        [ImportingConstructor]
-        public NpmMessageWarningFormatDefinition(IStyleManager styleManager) : base(styleManager)
-        {
-        }
     }
 }

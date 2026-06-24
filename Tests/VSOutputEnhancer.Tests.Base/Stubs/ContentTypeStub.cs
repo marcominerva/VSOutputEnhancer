@@ -8,20 +8,20 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
     [ExcludeFromCodeCoverage]
     public class ContentTypeStub : IContentType
     {
-        public ContentTypeStub(String typeName)
+        public ContentTypeStub(string typeName)
         {
             TypeName = typeName;
             DisplayName = $"Display name: {typeName}";
             BaseTypes = new List<IContentType>().AsReadOnly();
         }
 
-        public Boolean IsOfType(String type)
+        public bool IsOfType(string type)
         {
-            return String.Equals(type, TypeName, StringComparison.OrdinalIgnoreCase);
+            return string.Equals(type, TypeName, StringComparison.OrdinalIgnoreCase);
         }
 
-        public String TypeName { get; }
-        public String DisplayName { get; }
+        public string TypeName { get; }
+        public string DisplayName { get; }
         public IEnumerable<IContentType> BaseTypes { get; }
     }
 }

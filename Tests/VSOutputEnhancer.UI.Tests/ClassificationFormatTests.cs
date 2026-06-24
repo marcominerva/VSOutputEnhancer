@@ -16,7 +16,7 @@ namespace Balakin.VSOutputEnhancer.UI.Tests
     [ExcludeFromCodeCoverage]
     public class ClassificationFormatTests
     {
-        private static readonly IReadOnlyDictionary<Type, String> ClassificationTypeExpectedNames = new Dictionary<Type, String>
+        private static readonly IReadOnlyDictionary<Type, string> ClassificationTypeExpectedNames = new Dictionary<Type, string>
         {
             { typeof(BuildMessageErrorFormatDefinition), "Output enhancer: Build error message" },
             { typeof(BuildMessageWarningFormatDefinition), "Output enhancer: Build warning message" },
@@ -84,7 +84,7 @@ namespace Balakin.VSOutputEnhancer.UI.Tests
             return formatTypes;
         }
 
-        private String GetExpectedName(Type formatType)
+        private string GetExpectedName(Type formatType)
         {
             if (ClassificationTypeExpectedNames.TryGetValue(formatType, out var name))
             {

@@ -45,7 +45,7 @@ namespace Balakin.VSOutputEnhancer.Logic
                 .Single(m => m.IsGenericMethodDefinition);
 
             var genericMethod = genericMethodDefinition.MakeGenericMethod(eventType);
-            genericMethod.Invoke(this, new Object[] { handler });
+            genericMethod.Invoke(this, [handler]);
         }
 
         private void AddEventHandler<TEvent>(IEventHandler<TEvent> handler) where TEvent : IEvent

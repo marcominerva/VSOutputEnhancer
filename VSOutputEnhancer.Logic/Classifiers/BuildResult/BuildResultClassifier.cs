@@ -1,34 +1,26 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using Microsoft.VisualStudio.Text;
 
-namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildResult
-{
-    [Export(typeof(ISpanClassifier))]
-    public class BuildResultClassifier : ParserBasedSpanClassifier<BuildResultData>
-    {
-        [ImportingConstructor]
-        public BuildResultClassifier(IParser<BuildResultData> parser) : base(parser)
-        {
-        }
+namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildResult;
 
-        public override IEnumerable<String> ContentTypes { get; } = new[]
+[Export(typeof(ISpanClassifier))]
+[method: ImportingConstructor]
+public class BuildResultClassifier(IParser<BuildResultData> parser) : ParserBasedSpanClassifier<BuildResultData>(parser)
+{
+    public override IEnumerable<string> ContentTypes { get; } =
+    [
+        ContentType.BuildOutput,
+        ContentType.BuildOrderOutput
+    ];
+
+    protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, BuildResultData parsedData)
+    {
+        var classificationType = parsedData.Outcome switch
         {
-            ContentType.BuildOutput,
-            ContentType.BuildOrderOutput
+            BuildOutcome.Failed => ClassificationType.BuildResultFailed,
+            _ => ClassificationType.BuildResultSucceeded
         };
 
-        protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, BuildResultData parsedData)
-        {
-            if (parsedData.Failed == 0)
-            {
-                yield return new ProcessedParsedData(span, ClassificationType.BuildResultSucceeded);
-            }
-            else
-            {
-                yield return new ProcessedParsedData(span, ClassificationType.BuildResultFailed);
-            }
-        }
+        yield return new ProcessedParsedData(span, classificationType);
     }
 }

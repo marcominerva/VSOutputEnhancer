@@ -4,17 +4,12 @@ using Microsoft.VisualStudio.Text;
 
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers
 {
-    public abstract class ParserBasedSpanClassifier<TParsedData> : ISpanClassifier
+    public abstract class ParserBasedSpanClassifier<TParsedData>(IParser<TParsedData> parser) : ISpanClassifier
         where TParsedData : ParsedData
     {
         private static readonly IEnumerable<ProcessedParsedData> Empty = new ProcessedParsedData[0];
 
-        private readonly IParser<TParsedData> _parser;
-
-        public ParserBasedSpanClassifier(IParser<TParsedData> parser)
-        {
-            _parser = parser;
-        }
+        private readonly IParser<TParsedData> _parser = parser;
 
         public abstract IEnumerable<string> ContentTypes { get; }
 

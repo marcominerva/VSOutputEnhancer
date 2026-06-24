@@ -8,7 +8,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.PublishResult
     [Export(typeof(IParser<PublishResultData>))]
     public class PublishResultParser : IParser<PublishResultData>
     {
-        public Boolean TryParse(SnapshotSpan span, out PublishResultData result)
+        public bool TryParse(SnapshotSpan span, out PublishResultData result)
         {
             result = null;
 

@@ -10,28 +10,28 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
     [ExcludeFromCodeCoverage]
     public class TextSnapshotStub : ITextSnapshot
     {
-        public TextSnapshotStub(String text)
+        public TextSnapshotStub(string text)
         {
             this.text = text;
             TextBuffer = new TextBufferStub(null);
             Version = new TextVersionStub(TextBuffer);
         }
 
-        private readonly String text;
+        private readonly string text;
 
         #region ITextSnapshot
 
-        public String GetText(Span span)
+        public string GetText(Span span)
         {
             return GetText(span.Start, span.Length);
         }
 
-        public String GetText(Int32 startIndex, Int32 length)
+        public string GetText(Int32 startIndex, Int32 length)
         {
             return text.Substring(startIndex, length);
         }
 
-        public String GetText()
+        public string GetText()
         {
             return text;
         }

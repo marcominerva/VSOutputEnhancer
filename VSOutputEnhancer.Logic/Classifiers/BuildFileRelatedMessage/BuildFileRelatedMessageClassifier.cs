@@ -6,14 +6,10 @@ using Microsoft.VisualStudio.Text;
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage
 {
     [Export(typeof(ISpanClassifier))]
-    public class BuildFileRelatedMessageClassifier : ParserBasedSpanClassifier<BuildFileRelatedMessageData>
+    [method: ImportingConstructor]
+    public class BuildFileRelatedMessageClassifier(IParser<BuildFileRelatedMessageData> parser) : ParserBasedSpanClassifier<BuildFileRelatedMessageData>(parser)
     {
-        [ImportingConstructor]
-        public BuildFileRelatedMessageClassifier(IParser<BuildFileRelatedMessageData> parser) : base(parser)
-        {
-        }
-
-        public override IEnumerable<String> ContentTypes { get; } = new[]
+        public override IEnumerable<string> ContentTypes { get; } = new[]
         {
             ContentType.BuildOutput,
             ContentType.BuildOrderOutput

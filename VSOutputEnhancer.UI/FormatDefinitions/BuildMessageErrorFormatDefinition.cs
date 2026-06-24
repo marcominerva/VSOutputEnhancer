@@ -10,11 +10,8 @@ namespace Balakin.VSOutputEnhancer.UI.FormatDefinitions
     [Name(ClassificationType.BuildMessageError)]
     [UserVisible(false)]
     [Order(Before = Priority.Default)]
-    public sealed class BuildMessageErrorFormatDefinition : StyledClassificationFormatDefinition
+    [method: ImportingConstructor]
+    public sealed class BuildMessageErrorFormatDefinition(IStyleManager styleManager) : StyledClassificationFormatDefinition(styleManager)
     {
-        [ImportingConstructor]
-        public BuildMessageErrorFormatDefinition(IStyleManager styleManager) : base(styleManager)
-        {
-        }
     }
 }

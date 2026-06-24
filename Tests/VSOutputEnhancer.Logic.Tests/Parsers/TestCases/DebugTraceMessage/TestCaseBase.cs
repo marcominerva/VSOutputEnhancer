@@ -10,7 +10,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.DebugTraceMessa
     {
         public IParser<DebugTraceMessageData> CreateParser() => new DebugTraceMessageParser();
 
-        public abstract String Input { get; }
+        public abstract string Input { get; }
         public abstract DebugTraceMessageData ExpectedResult { get; }
     }
 }

@@ -13,10 +13,10 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage
         public BuildFileRelatedMessageData(
             ParsedValue<Int32> buildTaskId,
             ParsedValue<MessageType> type,
-            ParsedValue<String> code,
-            ParsedValue<String> message,
-            ParsedValue<String> fullMessage,
-            ParsedValue<String> filePath)
+            ParsedValue<string> code,
+            ParsedValue<string> message,
+            ParsedValue<string> fullMessage,
+            ParsedValue<string> filePath)
         {
             BuildTaskId = buildTaskId;
             Type = type;
@@ -30,10 +30,10 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage
         // ReSharper disable UnusedAutoPropertyAccessor.Local
         public ParsedValue<Int32> BuildTaskId { get; private set; }
         public ParsedValue<MessageType> Type { get; private set; }
-        public ParsedValue<String> Code { get; private set; }
-        public ParsedValue<String> Message { get; private set; }
-        public ParsedValue<String> FullMessage { get; private set; }
-        public ParsedValue<String> FilePath { get; private set; }
+        public ParsedValue<string> Code { get; private set; }
+        public ParsedValue<string> Message { get; private set; }
+        public ParsedValue<string> FullMessage { get; private set; }
+        public ParsedValue<string> FilePath { get; private set; }
         // ReSharper restore UnusedAutoPropertyAccessor.Local
     }
 }

@@ -6,15 +6,10 @@ using Microsoft.VisualStudio.Text.Formatting;
 namespace Balakin.VSOutputEnhancer.UI
 {
     [Export(typeof(IEnvironmentService))]
-    public class EnvironmentService : IEnvironmentService
+    [method: ImportingConstructor]
+    public class EnvironmentService(IClassificationFormatMapService classificationFormatMapService) : IEnvironmentService
     {
-        private readonly IClassificationFormatMapService classificationFormatMapService;
-
-        [ImportingConstructor]
-        public EnvironmentService(IClassificationFormatMapService classificationFormatMapService)
-        {
-            this.classificationFormatMapService = classificationFormatMapService;
-        }
+        private readonly IClassificationFormatMapService classificationFormatMapService = classificationFormatMapService;
 
         public Theme GetTheme()
         {

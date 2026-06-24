@@ -7,7 +7,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.PublishResult
     [ExcludeFromCodeCoverage]
     public class NoSuffix : TestCaseBase
     {
-        public override String Input { get; } = "========== Publish: bla bla\r\n";
+        public override string Input { get; } = "========== Publish: bla bla\r\n";
         public override PublishResultData ExpectedResult { get; } = null;
     }
 }

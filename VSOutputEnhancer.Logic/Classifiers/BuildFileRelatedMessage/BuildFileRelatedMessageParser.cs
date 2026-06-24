@@ -8,7 +8,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage
     [Export(typeof(IParser<BuildFileRelatedMessageData>))]
     public class BuildFileRelatedMessageParser : IParser<BuildFileRelatedMessageData>
     {
-        public Boolean TryParse(SnapshotSpan span, out BuildFileRelatedMessageData result)
+        public bool TryParse(SnapshotSpan span, out BuildFileRelatedMessageData result)
         {
             result = null;
             var text = span.GetText();
@@ -28,7 +28,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage
                 "\\(\\d+,\\d+\\)",
                 "\\(\\d+\\)"
             };
-            var regex = $"^(?:(?<BuildTaskId>\\d+)>)?(?<FilePath>.*?)(?<Location>{String.Join("|", locationVariants)})?: (?<FullMessage>(?<Type>(fatal |Fatal )?(warning|error|Warning|Error)) (?<Code>\\w+)?: (?<Message>.*))\r\n$";
+            var regex = $"^(?:(?<BuildTaskId>\\d+)>)?(?<FilePath>.*?)(?<Location>{string.Join("|", locationVariants)})?: (?<FullMessage>(?<Type>(fatal |Fatal )?(warning|error|Warning|Error)) (?<Code>\\w+)?: (?<Message>.*))\r\n$";
             var match = Regex.Match(text, regex, RegexOptions.Compiled);
             if (!match.Success)
             {

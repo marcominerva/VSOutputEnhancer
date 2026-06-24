@@ -5,8 +5,8 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests
 {
     public interface ITestCase
     {
-        String ContentType { get; }
-        IReadOnlyList<String> SourceText { get; }
+        string ContentType { get; }
+        IReadOnlyList<string> SourceText { get; }
         IReadOnlyList<ClassifiedText> ExpectedResult { get; }
     }
 }

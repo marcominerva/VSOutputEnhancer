@@ -8,7 +8,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.NpmResult
     [Export(typeof(IParser<NpmResultData>))]
     public class NpmResultParser : IParser<NpmResultData>
     {
-        public Boolean TryParse(SnapshotSpan span, out NpmResultData result)
+        public bool TryParse(SnapshotSpan span, out NpmResultData result)
         {
             result = null;
             var text = span.GetText();

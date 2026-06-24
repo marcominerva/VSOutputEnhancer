@@ -7,14 +7,10 @@ using Microsoft.VisualStudio.Text;
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugTraceMessage
 {
     [Export(typeof(ISpanClassifier))]
-    public class DebugTraceMessageClassifier : ParserBasedSpanClassifier<DebugTraceMessageData>
+    [method: ImportingConstructor]
+    public class DebugTraceMessageClassifier(IParser<DebugTraceMessageData> parser) : ParserBasedSpanClassifier<DebugTraceMessageData>(parser)
     {
-        [ImportingConstructor]
-        public DebugTraceMessageClassifier(IParser<DebugTraceMessageData> parser) : base(parser)
-        {
-        }
-
-        public override IEnumerable<String> ContentTypes { get; } = new[]
+        public override IEnumerable<string> ContentTypes { get; } = new[]
         {
             ContentType.DebugOutput,
         };
@@ -22,7 +18,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugTraceMessage
         protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, DebugTraceMessageData parsedData)
         {
             var classificationType = GetClassificationType(parsedData.Type);
-            if (String.IsNullOrEmpty(classificationType))
+            if (string.IsNullOrEmpty(classificationType))
             {
                 yield break;
             }
@@ -32,7 +28,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugTraceMessage
             yield return new ProcessedParsedData(snapshotSpan, classificationType);
         }
 
-        private String GetClassificationType(TraceEventType eventType)
+        private string GetClassificationType(TraceEventType eventType)
         {
             switch (eventType)
             {

@@ -7,7 +7,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers.TestCases.DebugTraceM
     [ExcludeFromCodeCoverage]
     public class UnsupportedMessageType : TestCaseBase
     {
-        public override String Input { get; } = "VSOutputEnhancerDemo.vshost.exe Transfer: 0 : Trace warning message\r\n";
+        public override string Input { get; } = "VSOutputEnhancerDemo.vshost.exe Transfer: 0 : Trace warning message\r\n";
         public override ProcessedParsedData ExpectedResult { get; } = null;
     }
 }

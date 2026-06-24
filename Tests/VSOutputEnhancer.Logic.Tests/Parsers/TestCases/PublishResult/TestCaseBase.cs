@@ -10,7 +10,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.PublishResult
     {
         public IParser<PublishResultData> CreateParser() => new PublishResultParser();
 
-        public abstract String Input { get; }
+        public abstract string Input { get; }
         public abstract PublishResultData ExpectedResult { get; }
     }
 }

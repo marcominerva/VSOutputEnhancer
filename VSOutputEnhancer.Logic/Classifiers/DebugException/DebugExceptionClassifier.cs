@@ -6,14 +6,10 @@ using Microsoft.VisualStudio.Text;
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugException
 {
     [Export(typeof(ISpanClassifier))]
-    public class DebugExceptionClassifier : ParserBasedSpanClassifier<DebugExceptionData>
+    [method: ImportingConstructor]
+    public class DebugExceptionClassifier(IParser<DebugExceptionData> parser) : ParserBasedSpanClassifier<DebugExceptionData>(parser)
     {
-        [ImportingConstructor]
-        public DebugExceptionClassifier(IParser<DebugExceptionData> parser) : base(parser)
-        {
-        }
-
-        public override IEnumerable<String> ContentTypes { get; } = new[]
+        public override IEnumerable<string> ContentTypes { get; } = new[]
         {
             ContentType.DebugOutput,
         };

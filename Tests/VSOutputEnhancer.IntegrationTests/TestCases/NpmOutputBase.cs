@@ -8,9 +8,9 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests.TestCases
     [ExcludeFromCodeCoverage]
     public abstract class NpmOutputBase : ITestCase
     {
-        public abstract String ContentType { get; }
+        public abstract string ContentType { get; }
 
-        public IReadOnlyList<String> SourceText { get; } = new[]
+        public IReadOnlyList<string> SourceText { get; } = new[]
         {
             "npm WARN package.json ASP.NET@0.0.0 No description\r\n",
             "====npm command completed with exit code 0====\r\n",

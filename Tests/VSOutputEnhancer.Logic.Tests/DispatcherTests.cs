@@ -19,7 +19,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
 
         private class TestEventHandler<TEvent> : IEventHandler<TEvent> where TEvent : IEvent
         {
-            public IEnumerable<String> ContentTypes { get; }
+            public IEnumerable<string> ContentTypes { get; }
             public Int32 InvocationCount { get; private set; }
 
             public void Handle(TEvent @event)

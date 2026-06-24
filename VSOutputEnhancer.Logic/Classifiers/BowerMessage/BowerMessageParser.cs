@@ -8,7 +8,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BowerMessage
     [Export(typeof(IParser<BowerMessageData>))]
     public class BowerMessageParser : IParser<BowerMessageData>
     {
-        public Boolean TryParse(SnapshotSpan span, out BowerMessageData result)
+        public bool TryParse(SnapshotSpan span, out BowerMessageData result)
         {
             var text = span.GetText();
 

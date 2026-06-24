@@ -10,7 +10,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.BowerMessage
     {
         public IParser<BowerMessageData> CreateParser() => new BowerMessageParser();
 
-        public abstract String Input { get; }
+        public abstract string Input { get; }
         public abstract BowerMessageData ExpectedResult { get; }
     }
 }

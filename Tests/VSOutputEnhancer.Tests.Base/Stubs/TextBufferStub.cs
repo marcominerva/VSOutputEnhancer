@@ -8,7 +8,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
     [ExcludeFromCodeCoverage]
     public class TextBufferStub : ITextBuffer
     {
-        public TextBufferStub(String contentType)
+        public TextBufferStub(string contentType)
         {
             ContentType = new ContentTypeStub(contentType);
             Properties = new PropertyCollection();
@@ -36,7 +36,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             throw new NotImplementedException();
         }
 
-        public Boolean CheckEditAccess()
+        public bool CheckEditAccess()
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             throw new NotImplementedException();
         }
 
-        public ITextSnapshot Insert(Int32 position, String text)
+        public ITextSnapshot Insert(Int32 position, string text)
         {
             throw new NotImplementedException();
         }
@@ -56,27 +56,27 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             throw new NotImplementedException();
         }
 
-        public ITextSnapshot Replace(Span replaceSpan, String replaceWith)
+        public ITextSnapshot Replace(Span replaceSpan, string replaceWith)
         {
             throw new NotImplementedException();
         }
 
-        public Boolean IsReadOnly(Int32 position)
+        public bool IsReadOnly(Int32 position)
         {
             throw new NotImplementedException();
         }
 
-        public Boolean IsReadOnly(Int32 position, Boolean isEdit)
+        public bool IsReadOnly(Int32 position, bool isEdit)
         {
             throw new NotImplementedException();
         }
 
-        public Boolean IsReadOnly(Span span)
+        public bool IsReadOnly(Span span)
         {
             throw new NotImplementedException();
         }
 
-        public Boolean IsReadOnly(Span span, Boolean isEdit)
+        public bool IsReadOnly(Span span, bool isEdit)
         {
             throw new NotImplementedException();
         }
@@ -93,7 +93,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             get { throw new NotImplementedException(); }
         }
 
-        public Boolean EditInProgress
+        public bool EditInProgress
         {
             get { throw new NotImplementedException(); }
         }

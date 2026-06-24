@@ -7,7 +7,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.BuildFileRelate
     [ExcludeFromCodeCoverage]
     public class NotParsed : TestCaseBase
     {
-        public override String Input { get; } = "Some message\r\n";
+        public override string Input { get; } = "Some message\r\n";
         public override BuildFileRelatedMessageData ExpectedResult { get; } = null;
     }
 }

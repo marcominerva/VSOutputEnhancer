@@ -10,13 +10,13 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugException
         {
         }
 
-        public DebugExceptionData(ParsedValue<String> exception, ParsedValue<String> assembly)
+        public DebugExceptionData(ParsedValue<string> exception, ParsedValue<string> assembly)
         {
             Exception = exception;
             Assembly = assembly;
         }
 
-        public ParsedValue<String> Exception { get; private set; }
-        public ParsedValue<String> Assembly { get; private set; }
+        public ParsedValue<string> Exception { get; private set; }
+        public ParsedValue<string> Assembly { get; private set; }
     }
 }

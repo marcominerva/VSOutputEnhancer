@@ -10,7 +10,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.BuildResult
     {
         public IParser<BuildResultData> CreateParser() => new BuildResultParser();
 
-        public abstract String Input { get; }
+        public abstract string Input { get; }
         public abstract BuildResultData ExpectedResult { get; }
     }
 }

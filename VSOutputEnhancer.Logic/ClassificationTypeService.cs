@@ -1,26 +1,16 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.ComponentModel.Composition;
 using Microsoft.VisualStudio.Text.Classification;
 
 namespace Balakin.VSOutputEnhancer.Logic
 {
     [Export(typeof(IClassificationTypeService))]
-    public class ClassificationTypeService : IClassificationTypeService
+    [method: ImportingConstructor]
+    public class ClassificationTypeService(IClassificationTypeRegistryService classificationTypeRegistryService) : IClassificationTypeService
     {
-        private readonly IClassificationTypeRegistryService classificationTypeRegistryService;
-        private readonly ConcurrentDictionary<String, IClassificationType> classificationTypes;
+        private readonly IClassificationTypeRegistryService classificationTypeRegistryService = classificationTypeRegistryService;
+        private readonly ConcurrentDictionary<string, IClassificationType> classificationTypes = new ConcurrentDictionary<string, IClassificationType>();
 
-        [ImportingConstructor]
-        public ClassificationTypeService(IClassificationTypeRegistryService classificationTypeRegistryService)
-        {
-            this.classificationTypeRegistryService = classificationTypeRegistryService;
-            classificationTypes = new ConcurrentDictionary<String, IClassificationType>();
-        }
-
-        public IClassificationType GetClassificationType(String name)
-        {
-            return classificationTypes.GetOrAdd(name, classificationTypeRegistryService.GetClassificationType);
-        }
+        public IClassificationType GetClassificationType(string name) => classificationTypes.GetOrAdd(name, classificationTypeRegistryService.GetClassificationType);
     }
 }

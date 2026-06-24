@@ -8,9 +8,9 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests.TestCases
     [ExcludeFromCodeCoverage]
     public class Smoke : ITestCase
     {
-        public String ContentType { get; } = Logic.ContentType.BuildOrderOutput;
+        public string ContentType { get; } = Logic.ContentType.BuildOrderOutput;
 
-        public IReadOnlyList<String> SourceText { get; } = new[]
+        public IReadOnlyList<string> SourceText { get; } = new[]
         {
             "========== Rebuild All: 1 succeeded, 0 failed, 0 skipped ==========\r\n"
         };

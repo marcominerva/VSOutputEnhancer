@@ -5,7 +5,7 @@ namespace Balakin.VSOutputEnhancer.Logic
 {
     public interface IEventHandler
     {
-        IEnumerable<String> ContentTypes { get; }
+        IEnumerable<string> ContentTypes { get; }
     }
 
     public interface IEventHandler<in TEvent> : IEventHandler

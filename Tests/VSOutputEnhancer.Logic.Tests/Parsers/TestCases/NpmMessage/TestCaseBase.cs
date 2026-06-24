@@ -10,7 +10,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.NpmMessage
     {
         public IParser<NpmMessageData> CreateParser() => new NpmMessageParser();
 
-        public abstract String Input { get; }
+        public abstract string Input { get; }
         public abstract NpmMessageData ExpectedResult { get; }
     }
 }

@@ -10,7 +10,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.DebugException
     {
         public IParser<DebugExceptionData> CreateParser() => new DebugExceptionParser();
 
-        public abstract String Input { get; }
+        public abstract string Input { get; }
         public abstract DebugExceptionData ExpectedResult { get; }
     }
 }
