@@ -12,9 +12,9 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.PublishResult
         public override string Input { get; } = "========== Publish: 10 succeeded, 3 failed, 122 skipped ==========\r\n";
 
         public override PublishResultData ExpectedResult { get; } = new PublishResultData(
-            new ParsedValue<Int32>(10, new Span(20, 2)),
-            new ParsedValue<Int32>(3, new Span(34, 1)),
-            new ParsedValue<Int32>(122, new Span(44, 3))
+            new ParsedValue<int>(10, new Span(20, 2)),
+            new ParsedValue<int>(3, new Span(34, 1)),
+            new ParsedValue<int>(122, new Span(44, 3))
         );
     }
 }

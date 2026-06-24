@@ -9,15 +9,15 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.PublishResult
         {
         }
 
-        public PublishResultData(ParsedValue<Int32> succeeded, ParsedValue<Int32> failed, ParsedValue<Int32> skipped)
+        public PublishResultData(ParsedValue<int> succeeded, ParsedValue<int> failed, ParsedValue<int> skipped)
         {
             Succeeded = succeeded;
             Failed = failed;
             Skipped = skipped;
         }
 
-        public ParsedValue<Int32> Succeeded { get; private set; }
-        public ParsedValue<Int32> Failed { get; private set; }
-        public ParsedValue<Int32> Skipped { get; private set; }
+        public ParsedValue<int> Succeeded { get; private set; }
+        public ParsedValue<int> Failed { get; private set; }
+        public ParsedValue<int> Skipped { get; private set; }
     }
 }

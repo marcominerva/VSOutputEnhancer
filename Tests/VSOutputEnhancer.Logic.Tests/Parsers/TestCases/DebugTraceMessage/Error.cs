@@ -15,7 +15,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.DebugTraceMessa
         public override DebugTraceMessageData ExpectedResult { get; } = new DebugTraceMessageData(
             new ParsedValue<string>("VSOutputEnhancerDemo.vshost.exe", new Span(0, 31)),
             new ParsedValue<TraceEventType>(TraceEventType.Information, new Span(32, 11)),
-            new ParsedValue<Int32>(10, new Span(45, 2)),
+            new ParsedValue<int>(10, new Span(45, 2)),
             new ParsedValue<string>("Trace information message", new Span(50, 25)),
             new ParsedValue<string>("Information: 10 : Trace information message", new Span(32, 43))
         );

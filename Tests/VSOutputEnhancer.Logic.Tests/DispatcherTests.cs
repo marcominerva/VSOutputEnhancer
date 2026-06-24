@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
@@ -20,12 +19,10 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
         private class TestEventHandler<TEvent> : IEventHandler<TEvent> where TEvent : IEvent
         {
             public IEnumerable<string> ContentTypes { get; }
-            public Int32 InvocationCount { get; private set; }
 
-            public void Handle(TEvent @event)
-            {
-                InvocationCount++;
-            }
+            public int InvocationCount { get; private set; }
+
+            public void Handle(TEvent @event) => InvocationCount++;
         }
 
         [Fact]

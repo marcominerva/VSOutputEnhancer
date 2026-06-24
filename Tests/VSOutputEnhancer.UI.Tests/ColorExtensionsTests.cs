@@ -12,7 +12,7 @@ namespace Balakin.VSOutputEnhancer.UI.Tests
     {
         [Theory]
         [MemberData(nameof(CreateTestData))]
-        public void GetLightness(Int32 color, Double expectedLightness)
+        public void GetLightness(int color, Double expectedLightness)
         {
             const Double precision = 0.001;
 

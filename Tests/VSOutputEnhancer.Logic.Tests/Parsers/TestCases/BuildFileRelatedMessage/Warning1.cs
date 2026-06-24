@@ -12,7 +12,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.BuildFileRelate
         public override string Input { get; } = "1>C:\\VSOutputEnhancer\\ClassificationType.cs(29,53,29,83): warning CS0169: The field 'ClassificationType.BuildResultSucceededDefinition' is never used\r\n";
 
         public override BuildFileRelatedMessageData ExpectedResult { get; } = new BuildFileRelatedMessageData(
-            new ParsedValue<Int32>(1, new Span(0, 1)),
+            new ParsedValue<int>(1, new Span(0, 1)),
             new ParsedValue<MessageType>(MessageType.Warning, new Span(58, 7)),
             new ParsedValue<string>("CS0169", new Span(66, 6)),
             new ParsedValue<string>("The field 'ClassificationType.BuildResultSucceededDefinition' is never used", new Span(74, 75)),

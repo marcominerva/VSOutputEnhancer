@@ -13,12 +13,12 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             VersionNumber = 0;
         }
 
-        public ITrackingPoint CreateTrackingPoint(Int32 position, PointTrackingMode trackingMode)
+        public ITrackingPoint CreateTrackingPoint(int position, PointTrackingMode trackingMode)
         {
             throw new NotImplementedException();
         }
 
-        public ITrackingPoint CreateTrackingPoint(Int32 position, PointTrackingMode trackingMode, TrackingFidelityMode trackingFidelity)
+        public ITrackingPoint CreateTrackingPoint(int position, PointTrackingMode trackingMode, TrackingFidelityMode trackingFidelity)
         {
             throw new NotImplementedException();
         }
@@ -33,12 +33,12 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             throw new NotImplementedException();
         }
 
-        public ITrackingSpan CreateTrackingSpan(Int32 start, Int32 length, SpanTrackingMode trackingMode)
+        public ITrackingSpan CreateTrackingSpan(int start, int length, SpanTrackingMode trackingMode)
         {
             throw new NotImplementedException();
         }
 
-        public ITrackingSpan CreateTrackingSpan(Int32 start, Int32 length, SpanTrackingMode trackingMode, TrackingFidelityMode trackingFidelity)
+        public ITrackingSpan CreateTrackingSpan(int start, int length, SpanTrackingMode trackingMode, TrackingFidelityMode trackingFidelity)
         {
             throw new NotImplementedException();
         }
@@ -53,7 +53,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             get { throw new NotImplementedException(); }
         }
 
-        public Int32 Length
+        public int Length
         {
             get { throw new NotImplementedException(); }
         }
@@ -64,9 +64,9 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
         }
 
         public ITextBuffer TextBuffer { get; }
-        public Int32 VersionNumber { get; }
+        public int VersionNumber { get; }
 
-        public Int32 ReiteratedVersionNumber
+        public int ReiteratedVersionNumber
         {
             get { throw new NotImplementedException(); }
         }

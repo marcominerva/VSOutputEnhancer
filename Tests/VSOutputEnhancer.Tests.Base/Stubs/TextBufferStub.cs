@@ -16,7 +16,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
 
         public PropertyCollection Properties { get; }
 
-        public ITextEdit CreateEdit(EditOptions options, Int32? reiteratedVersionNumber, Object editTag)
+        public ITextEdit CreateEdit(EditOptions options, int? reiteratedVersionNumber, Object editTag)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             throw new NotImplementedException();
         }
 
-        public ITextSnapshot Insert(Int32 position, string text)
+        public ITextSnapshot Insert(int position, string text)
         {
             throw new NotImplementedException();
         }
@@ -61,12 +61,12 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             throw new NotImplementedException();
         }
 
-        public bool IsReadOnly(Int32 position)
+        public bool IsReadOnly(int position)
         {
             throw new NotImplementedException();
         }
 
-        public bool IsReadOnly(Int32 position, bool isEdit)
+        public bool IsReadOnly(int position, bool isEdit)
         {
             throw new NotImplementedException();
         }

@@ -11,7 +11,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage
         }
 
         public BuildFileRelatedMessageData(
-            ParsedValue<Int32> buildTaskId,
+            ParsedValue<int> buildTaskId,
             ParsedValue<MessageType> type,
             ParsedValue<string> code,
             ParsedValue<string> message,
@@ -28,7 +28,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage
 
         // This properties filled using reflection
         // ReSharper disable UnusedAutoPropertyAccessor.Local
-        public ParsedValue<Int32> BuildTaskId { get; private set; }
+        public ParsedValue<int> BuildTaskId { get; private set; }
         public ParsedValue<MessageType> Type { get; private set; }
         public ParsedValue<string> Code { get; private set; }
         public ParsedValue<string> Message { get; private set; }

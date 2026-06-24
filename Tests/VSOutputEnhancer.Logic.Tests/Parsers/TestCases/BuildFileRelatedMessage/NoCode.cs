@@ -12,7 +12,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.BuildFileRelate
         public override string Input { get; } = "1>C:\\Sources\\Some project\\SomeProject.csproj(163,5): error : This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://www.postsharp.net/links/nuget-restore.\r\n";
         
         public override BuildFileRelatedMessageData ExpectedResult { get; } = new BuildFileRelatedMessageData(
-            new ParsedValue<Int32>(1, new Span(0, 1)),
+            new ParsedValue<int>(1, new Span(0, 1)),
             new ParsedValue<MessageType>(MessageType.Error, new Span(53, 5)),
             new ParsedValue<string>(),
             new ParsedValue<string>("This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://www.postsharp.net/links/nuget-restore.", new Span(61, 195)),

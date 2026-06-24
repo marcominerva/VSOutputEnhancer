@@ -10,6 +10,6 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.NpmResult
     public class NegativeExitCode : TestCaseBase
     {
         public override string Input { get; } = "====npm command completed with exit code -8====\r\n";
-        public override NpmResultData ExpectedResult { get; } = new NpmResultData(new ParsedValue<Int32>(-8, new Span(41, 2)));
+        public override NpmResultData ExpectedResult { get; } = new NpmResultData(new ParsedValue<int>(-8, new Span(41, 2)));
     }
 }

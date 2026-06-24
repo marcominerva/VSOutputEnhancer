@@ -10,7 +10,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugTraceMessage
         {
         }
 
-        public DebugTraceMessageData(ParsedValue<string> source, ParsedValue<TraceEventType> type, ParsedValue<Int32> id, ParsedValue<string> message, ParsedValue<string> prettyMessage)
+        public DebugTraceMessageData(ParsedValue<string> source, ParsedValue<TraceEventType> type, ParsedValue<int> id, ParsedValue<string> message, ParsedValue<string> prettyMessage)
         {
             Source = source;
             Type = type;
@@ -23,7 +23,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugTraceMessage
         // ReSharper disable UnusedAutoPropertyAccessor.Local
         public ParsedValue<string> Source { get; private set; }
         public ParsedValue<TraceEventType> Type { get; private set; }
-        public ParsedValue<Int32> Id { get; private set; }
+        public ParsedValue<int> Id { get; private set; }
         public ParsedValue<string> Message { get; private set; }
         public ParsedValue<string> PrettyMessage { get; private set; }
         // ReSharper restore UnusedAutoPropertyAccessor.Local

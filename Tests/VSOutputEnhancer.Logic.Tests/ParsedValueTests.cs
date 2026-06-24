@@ -13,8 +13,8 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
         [Fact]
         public void EmptyValueThrowsExceptionValueType()
         {
-            var value = new ParsedValue<Int32>();
-            Func<Int32> action = () => (Int32) value;
+            var value = new ParsedValue<int>();
+            Func<int> action = () => (int)value;
             action.Should().Throw<InvalidOperationException>();
         }
 
@@ -22,7 +22,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
         public void EmptyValueThrowsExceptionReferenceType()
         {
             var value = new ParsedValue<string>();
-            Func<string> action = () => (string) value;
+            Func<string> action = () => (string)value;
             action.Should().Throw<InvalidOperationException>();
         }
 
@@ -31,8 +31,8 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
         {
             var originalValue = 1;
 
-            var parsedValue = new ParsedValue<Int32>(originalValue, new Span());
-            var actualValue = (Int32) parsedValue;
+            var parsedValue = new ParsedValue<int>(originalValue, new Span());
+            var actualValue = (int)parsedValue;
 
             actualValue.Should().Be(originalValue);
         }
@@ -43,7 +43,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
             var originalValue = "test";
 
             var parsedValue = new ParsedValue<string>(originalValue, new Span());
-            var actualValue = (string) parsedValue;
+            var actualValue = (string)parsedValue;
 
             actualValue.Should().Be(originalValue);
         }

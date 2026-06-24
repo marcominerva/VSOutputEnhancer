@@ -26,7 +26,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             return GetText(span.Start, span.Length);
         }
 
-        public string GetText(Int32 startIndex, Int32 length)
+        public string GetText(int startIndex, int length)
         {
             return text.Substring(startIndex, length);
         }
@@ -36,22 +36,22 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             return text;
         }
 
-        public Char[] ToCharArray(Int32 startIndex, Int32 length)
+        public Char[] ToCharArray(int startIndex, int length)
         {
             throw new NotImplementedException();
         }
 
-        public void CopyTo(Int32 sourceIndex, Char[] destination, Int32 destinationIndex, Int32 count)
+        public void CopyTo(int sourceIndex, Char[] destination, int destinationIndex, int count)
         {
             throw new NotImplementedException();
         }
 
-        public ITrackingPoint CreateTrackingPoint(Int32 position, PointTrackingMode trackingMode)
+        public ITrackingPoint CreateTrackingPoint(int position, PointTrackingMode trackingMode)
         {
             throw new NotImplementedException();
         }
 
-        public ITrackingPoint CreateTrackingPoint(Int32 position, PointTrackingMode trackingMode, TrackingFidelityMode trackingFidelity)
+        public ITrackingPoint CreateTrackingPoint(int position, PointTrackingMode trackingMode, TrackingFidelityMode trackingFidelity)
         {
             throw new NotImplementedException();
         }
@@ -66,27 +66,27 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             throw new NotImplementedException();
         }
 
-        public ITrackingSpan CreateTrackingSpan(Int32 start, Int32 length, SpanTrackingMode trackingMode)
+        public ITrackingSpan CreateTrackingSpan(int start, int length, SpanTrackingMode trackingMode)
         {
             throw new NotImplementedException();
         }
 
-        public ITrackingSpan CreateTrackingSpan(Int32 start, Int32 length, SpanTrackingMode trackingMode, TrackingFidelityMode trackingFidelity)
+        public ITrackingSpan CreateTrackingSpan(int start, int length, SpanTrackingMode trackingMode, TrackingFidelityMode trackingFidelity)
         {
             throw new NotImplementedException();
         }
 
-        public ITextSnapshotLine GetLineFromLineNumber(Int32 lineNumber)
+        public ITextSnapshotLine GetLineFromLineNumber(int lineNumber)
         {
             throw new NotImplementedException();
         }
 
-        public ITextSnapshotLine GetLineFromPosition(Int32 position)
+        public ITextSnapshotLine GetLineFromPosition(int position)
         {
             throw new NotImplementedException();
         }
 
-        public Int32 GetLineNumberFromPosition(Int32 position)
+        public int GetLineNumberFromPosition(int position)
         {
             throw new NotImplementedException();
         }
@@ -110,17 +110,17 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
 
         public ITextVersion Version { get; }
 
-        public Int32 Length
+        public int Length
         {
             get { return text.Length; }
         }
 
-        public Int32 LineCount
+        public int LineCount
         {
             get { throw new NotImplementedException(); }
         }
 
-        public Char this[Int32 position]
+        public Char this[int position]
         {
             get { throw new NotImplementedException(); }
         }

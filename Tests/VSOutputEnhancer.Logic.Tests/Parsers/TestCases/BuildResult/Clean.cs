@@ -12,10 +12,10 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers.TestCases.BuildResult
         public override string Input { get; } = "========== Clean: 15 succeeded, 13 failed, 1 skipped ==========\r\n";
 
         public override BuildResultData ExpectedResult { get; } = new BuildResultData(
-            new ParsedValue<Int32>(15, new Span(18, 2)),
-            new ParsedValue<Int32>(13, new Span(32, 2)),
-            new ParsedValue<Int32>(),
-            new ParsedValue<Int32>(1, new Span(43, 1))
+            new ParsedValue<int>(15, new Span(18, 2)),
+            new ParsedValue<int>(13, new Span(32, 2)),
+            new ParsedValue<int>(),
+            new ParsedValue<int>(1, new Span(43, 1))
         );
     }
 }

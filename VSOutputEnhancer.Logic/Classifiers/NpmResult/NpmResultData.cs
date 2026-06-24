@@ -10,11 +10,11 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.NpmResult
         {
         }
 
-        public NpmResultData(ParsedValue<Int32> exitCode)
+        public NpmResultData(ParsedValue<int> exitCode)
         {
             ExitCode = exitCode;
         }
 
-        public ParsedValue<Int32> ExitCode { get; set; }
+        public ParsedValue<int> ExitCode { get; set; }
     }
 }
