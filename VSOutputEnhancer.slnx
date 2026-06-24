@@ -9,6 +9,11 @@
     <File Path="Build/GlobalAssemblyInfo.cs" />
     <File Path="global.json" />
   </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="README.md" />
+  </Folder>
   <Folder Name="/Tests/">
     <Project Path="Tests/VSOutputEnhancer.IntegrationTests/VSOutputEnhancer.IntegrationTests.csproj" />
     <Project Path="Tests/VSOutputEnhancer.Logic.Tests/VSOutputEnhancer.Logic.Tests.csproj" />

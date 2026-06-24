@@ -8,7 +8,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildResult
     [Export(typeof(IParser<BuildResultData>))]
     public class BuildResultParser : IParser<BuildResultData>
     {
-        public Boolean TryParse(SnapshotSpan span, out BuildResultData result)
+        public bool TryParse(SnapshotSpan span, out BuildResultData result)
         {
             var text = span.GetText();
 
@@ -17,6 +17,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildResult
             {
                 return false;
             }
+
             if (!text.EndsWith(" ==========\r\n", StringComparison.Ordinal))
             {
                 return false;
