@@ -126,6 +126,9 @@
   <data name="FormatDisplayName_BuildMessageWarning" xml:space="preserve">
     <value>Output enhancer: Build warning message</value>
   </data>
+  <data name="FormatDisplayName_BuildProjectHeader" xml:space="preserve">
+    <value>Output enhancer: Build project header</value>
+  </data>
   <data name="FormatDisplayName_BuildResultFailed" xml:space="preserve">
     <value>Output enhancer: Build failed</value>
   </data>

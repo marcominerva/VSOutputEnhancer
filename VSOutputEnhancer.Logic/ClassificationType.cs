@@ -6,6 +6,7 @@
         [
             BuildMessageError,
             BuildMessageWarning,
+            BuildProjectHeader,
             BuildResultFailed,
             BuildResultSucceeded,
             PublishResultFailed,
@@ -23,6 +24,7 @@
 
         public const string BuildMessageError = "BuildMessageError";
         public const string BuildMessageWarning = "BuildMessageWarning";
+        public const string BuildProjectHeader = "BuildProjectHeader";
 
         public const string BuildResultFailed = "BuildResultFailed";
         public const string BuildResultSucceeded = "BuildResultSucceeded";

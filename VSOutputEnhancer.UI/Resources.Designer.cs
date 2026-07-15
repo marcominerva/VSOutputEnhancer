@@ -64,6 +64,12 @@ namespace Balakin.VSOutputEnhancer {
             }
         }
         
+        public static string FormatDisplayName_BuildProjectHeader {
+            get {
+                return ResourceManager.GetString("FormatDisplayName_BuildProjectHeader", resourceCulture);
+            }
+        }
+
         public static string FormatDisplayName_BuildResultFailed {
             get {
                 return ResourceManager.GetString("FormatDisplayName_BuildResultFailed", resourceCulture);

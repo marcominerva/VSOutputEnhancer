@@ -18,6 +18,7 @@ namespace Balakin.VSOutputEnhancer.UI.Tests
     {
         private static readonly IReadOnlyDictionary<Type, string> ClassificationTypeExpectedNames = new Dictionary<Type, string>
         {
+            { typeof(BuildProjectHeaderFormatDefinition), "Output enhancer: Build project header" },
             { typeof(BuildMessageErrorFormatDefinition), "Output enhancer: Build error message" },
             { typeof(BuildMessageWarningFormatDefinition), "Output enhancer: Build warning message" },
             { typeof(BuildResultFailedFormatDefinition), "Output enhancer: Build failed" },
