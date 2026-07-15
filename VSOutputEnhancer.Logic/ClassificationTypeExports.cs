@@ -7,6 +7,10 @@ namespace Balakin.VSOutputEnhancer.Logic
     public static class ClassificationTypeExports
     {
         [Export(typeof(ClassificationTypeDefinition))]
+        [Name(ClassificationType.BuildActionStarted)]
+        public static ClassificationTypeDefinition BuildActionStarted;
+
+        [Export(typeof(ClassificationTypeDefinition))]
         [Name(ClassificationType.BuildActionStartedSuccess)]
         public static ClassificationTypeDefinition BuildActionStartedSuccess;
 

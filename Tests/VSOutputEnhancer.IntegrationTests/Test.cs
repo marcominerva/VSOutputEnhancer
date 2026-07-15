@@ -28,10 +28,11 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests
 
             var actualResult = new List<ClassifiedText>();
             classifier.ClassificationChanged += (_, e) => AddClassificationSpans(classifier, e.ChangeSpan, actualResult);
+            var snapshot = new TextSnapshotStub(string.Empty);
             foreach (var line in testCase.SourceText)
             {
-                var snapshot = new TextSnapshotStub(line);
-                var span = new SnapshotSpan(snapshot, new Span(0, snapshot.Length));
+                var start = snapshot.Append(line);
+                var span = new SnapshotSpan(snapshot, new Span(start, line.Length));
                 AddClassificationSpans(classifier, span, actualResult);
             }
 

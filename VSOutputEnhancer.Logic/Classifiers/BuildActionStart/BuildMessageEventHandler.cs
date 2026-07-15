@@ -8,8 +8,6 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildActionStart
     [Export(typeof(IEventHandler))]
     public class BuildMessageEventHandler : IEventHandler<SpanParsedEvent<BuildFileRelatedMessageData>>
     {
-        private static readonly string[] BuildActions = ["Build", "Rebuild All", "Clean"];
-
         public IEnumerable<string> ContentTypes { get; } =
         [
             ContentType.BuildOutput,
@@ -18,28 +16,19 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildActionStart
 
         public void Handle(IDispatcher dispatcher, DataContainer data, SpanParsedEvent<BuildFileRelatedMessageData> @event)
         {
-            var actionCollection = data.Get<BuildActionCollection>();
-
             var newState = Convert(@event.ParsedData.Type.Value);
-            var buildTaskId = @event.ParsedData.BuildTaskId.ToNullable();
-
-            foreach (var action in BuildActions)
+            if (newState == BuildActionState.Unknown)
             {
-                var projectName = actionCollection.GetLatestProject(action, buildTaskId);
-                if (string.IsNullOrEmpty(projectName))
-                {
-                    continue;
-                }
-
-                var changed = actionCollection.HandleStateChange(action, projectName, newState);
-                if (changed)
-                {
-                    actionCollection.PreserveStateForNextClassification(action, projectName);
-                    var span = actionCollection.GetSpan(action, projectName);
-                    dispatcher.Dispatch(new ClassificationChangedEvent(span), data);
-                }
-
                 return;
+            }
+
+            var actionCollection = data.Get<BuildActionCollection>();
+            var buildTaskId = @event.ParsedData.BuildTaskId.ToNullable();
+            var messagePosition = @event.Span.Span.Start;
+
+            if (actionCollection.TryRaiseStateForMessage(messagePosition, buildTaskId, newState, out var span))
+            {
+                dispatcher.Dispatch(new ClassificationChangedEvent(span), data);
             }
         }
 

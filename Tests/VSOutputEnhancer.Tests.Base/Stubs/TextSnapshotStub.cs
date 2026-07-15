@@ -15,9 +15,21 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
             this.text = text;
             TextBuffer = new TextBufferStub(null);
             Version = new TextVersionStub(TextBuffer);
+            ((TextBufferStub)TextBuffer).CurrentSnapshot = this;
         }
 
-        private readonly string text;
+        private string text;
+
+        /// <summary>
+        /// Appends text to the snapshot, simulating an append-only buffer such as the
+        /// Visual Studio Output window. Returns the start position of the appended text.
+        /// </summary>
+        public int Append(string value)
+        {
+            var start = text.Length;
+            text += value;
+            return start;
+        }
 
         #region ITextSnapshot
 

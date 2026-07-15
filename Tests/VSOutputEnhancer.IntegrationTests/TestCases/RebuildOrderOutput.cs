@@ -19,6 +19,7 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests.TestCases
 
         public IReadOnlyList<ClassifiedText> ExpectedResult { get; } = new[]
         {
+            new ClassifiedText(ClassificationType.BuildActionStarted, "------ Rebuild All started: Project: ClassLibrary1, Configuration: Debug Any CPU ------"),
             new ClassifiedText(ClassificationType.BuildActionStartedSuccess, "------ Rebuild All started: Project: ClassLibrary1, Configuration: Debug Any CPU ------"),
             new ClassifiedText(ClassificationType.BuildResultSucceeded, "========== Rebuild All: 1 succeeded, 0 failed, 0 skipped ==========\r\n")
         };

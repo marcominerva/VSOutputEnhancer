@@ -4,6 +4,7 @@
     {
         public static readonly string[] All =
         [
+            BuildActionStarted,
             BuildActionStartedError,
             BuildActionStartedSuccess,
             BuildActionStartedWarning,
@@ -24,6 +25,7 @@
             BowerMessageError
         ];
 
+        public const string BuildActionStarted = "BuildActionStarted";
         public const string BuildActionStartedError = "BuildActionStartedError";
         public const string BuildActionStartedSuccess = "BuildActionStartedSuccess";
         public const string BuildActionStartedWarning = "BuildActionStartedWarning";

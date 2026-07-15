@@ -120,6 +120,9 @@
   <data name="FormatDisplayName_BowerMessageError" xml:space="preserve">
     <value>Output enhancer: Bower error message</value>
   </data>
+  <data name="FormatDisplayName_BuildActionStarted" xml:space="preserve">
+    <value>Output enhancer: Build/Publish started</value>
+  </data>
   <data name="FormatDisplayName_BuildActionStartedError" xml:space="preserve">
     <value>Output enhancer: Build/Publish started and failed</value>
   </data>

@@ -60,6 +60,7 @@ namespace Balakin.VSOutputEnhancer.UI.Tests.UnitTests
             };
             var skip = new[]
             {
+                ClassificationType.BuildActionStarted,
                 ClassificationType.DebugTraceInformation
             };
 

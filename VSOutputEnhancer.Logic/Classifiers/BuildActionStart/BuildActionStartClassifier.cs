@@ -16,25 +16,21 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildActionStart
 
         protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, BuildActionStartData parsedData, DataContainer data)
         {
-            var action = parsedData.Action.Value;
-            var projectName = parsedData.ProjectName.Value;
             var buildTaskId = parsedData.BuildTaskId.ToNullable();
             var actionCollection = data.Get<BuildActionCollection>();
 
-            actionCollection.HandleActionStart(action, projectName, buildTaskId, span);
-            var state = actionCollection.GetState(action, projectName);
+            var position = span.Span.Start;
+            actionCollection.RegisterActionStart(position, buildTaskId, span);
+            var state = actionCollection.GetState(position);
             var classificationType = state switch
             {
                 BuildActionState.Success => ClassificationType.BuildActionStartedSuccess,
                 BuildActionState.Warning => ClassificationType.BuildActionStartedWarning,
                 BuildActionState.Error => ClassificationType.BuildActionStartedError,
-                _ => null
+                _ => ClassificationType.BuildActionStarted
             };
 
-            if (classificationType is not null)
-            {
-                yield return new ProcessedParsedData(parsedData.FullMessage.Span, classificationType);
-            }
+            yield return new ProcessedParsedData(parsedData.FullMessage.Span, classificationType);
         }
     }
 }

@@ -1,4 +1,8 @@
 ﻿{
+  "BuildActionStarted": {
+    "ForegroundColor": "#00FFFF",
+    "Bold": true
+  },
   "BuildActionStartedError": {
     "ForegroundColor": "#BF0606",
     "Bold": true

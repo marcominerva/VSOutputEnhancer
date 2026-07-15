@@ -22,6 +22,8 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests.TestCases
 
         public IReadOnlyList<ClassifiedText> ExpectedResult { get; } = new[]
         {
+            new ClassifiedText(ClassificationType.BuildActionStarted, "------ Build started: Project: ConsoleDemo, Configuration: Debug Any CPU ------"),
+            new ClassifiedText(ClassificationType.BuildActionStarted, "------ Build started: Project: WebDemo, Configuration: Debug Any CPU ------"),
             new ClassifiedText(ClassificationType.BuildActionStartedWarning, "------ Build started: Project: ConsoleDemo, Configuration: Debug Any CPU ------"),
             new ClassifiedText(ClassificationType.BuildMessageWarning, "warning CS0168: The variable 'ex' is declared but never used"),
             new ClassifiedText(ClassificationType.BuildActionStartedError, "------ Build started: Project: ConsoleDemo, Configuration: Debug Any CPU ------"),

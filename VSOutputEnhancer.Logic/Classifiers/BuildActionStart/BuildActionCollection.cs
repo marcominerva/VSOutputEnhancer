@@ -1,124 +1,104 @@
+using System.Collections.Generic;
 using Microsoft.VisualStudio.Text;
 
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildActionStart
 {
     public class BuildActionCollection
     {
-        private sealed class BuildActionValue
+        private sealed class BuildActionEntry
         {
-            public BuildActionState? State { get; set; }
+            public int Position { get; set; }
 
-            public SnapshotSpan? Span { get; set; }
+            public int? BuildTaskId { get; set; }
 
-            public bool PreserveStateForNextClassification { get; set; }
+            public SnapshotSpan Span { get; set; }
+
+            public BuildActionState State { get; set; }
         }
 
-        private readonly IDictionary<string, IDictionary<string, BuildActionValue>> data = new Dictionary<string, IDictionary<string, BuildActionValue>>();
-        private readonly IDictionary<string, string> latestProjects = new Dictionary<string, string>();
-        private readonly IDictionary<string, IDictionary<int, string>> latestParallelProjects = new Dictionary<string, IDictionary<int, string>>();
+        private readonly IDictionary<int, BuildActionEntry> entries = new Dictionary<int, BuildActionEntry>();
 
-        public IEnumerable<string> EnumerateProjects(string action)
+        public void RegisterActionStart(int position, int? buildTaskId, SnapshotSpan span)
         {
-            return data.TryGetValue(action, out var projects) ? projects.Keys : [];
-        }
-
-        public void HandleActionStart(string action, string projectName, int? buildTaskId, SnapshotSpan span)
-        {
-            var value = GetOrAddValue(action, projectName);
-            var preserveState = value.PreserveStateForNextClassification;
-            value.PreserveStateForNextClassification = false;
-            value.Span = span;
-            if (!preserveState)
+            if (!entries.TryGetValue(position, out var entry))
             {
-                value.State = null;
+                entry = new BuildActionEntry
+                {
+                    Position = position,
+                    State = BuildActionState.Unknown
+                };
+                entries.Add(position, entry);
             }
 
-            SetLatestProject(action, projectName, buildTaskId);
+            entry.BuildTaskId = buildTaskId;
+            entry.Span = span;
         }
 
-        public bool HandleStateChange(string action, string projectName, BuildActionState state)
+        public BuildActionState GetState(int position)
         {
-            var value = GetOrAddValue(action, projectName);
-            if (value.State >= state)
+            return entries.TryGetValue(position, out var entry) ? entry.State : BuildActionState.Unknown;
+        }
+
+        public bool TryRaiseStateForMessage(int messagePosition, int? buildTaskId, BuildActionState state, out SnapshotSpan span)
+        {
+            span = default;
+
+            var entry = FindPrecedingEntry(messagePosition, buildTaskId);
+            if (entry is null || entry.State >= state)
             {
                 return false;
             }
 
-            value.State = state;
+            entry.State = state;
+            span = TranslateToCurrentSnapshot(entry.Span);
             return true;
         }
 
-        public BuildActionState GetState(string action, string projectName)
+        public IEnumerable<SnapshotSpan> CompletePendingActions()
         {
-            var value = GetOrAddValue(action, projectName);
-            return value.State ?? BuildActionState.Unknown;
-        }
-
-        public SnapshotSpan GetSpan(string action, string projectName)
-        {
-            var value = GetOrAddValue(action, projectName);
-            return value.Span.Value;
-        }
-
-        public void PreserveStateForNextClassification(string action, string projectName)
-        {
-            var value = GetOrAddValue(action, projectName);
-            value.PreserveStateForNextClassification = true;
-        }
-
-        public string GetLatestProject(string action, int? buildTaskId)
-        {
-            if (buildTaskId is null)
+            var result = new List<SnapshotSpan>();
+            foreach (var entry in entries.Values)
             {
-                return latestProjects.TryGetValue(action, out var projectName) ? projectName : null;
-            }
-
-            if (!latestParallelProjects.TryGetValue(action, out var projects))
-            {
-                return null;
-            }
-
-            return projects.TryGetValue(buildTaskId.Value, out var parallelProjectName) ? parallelProjectName : null;
-        }
-
-        public void DeleteAll(string action)
-        {
-            latestProjects.Remove(action);
-            latestParallelProjects.Remove(action);
-        }
-
-        private BuildActionValue GetOrAddValue(string action, string projectName)
-        {
-            if (!data.TryGetValue(action, out var projects))
-            {
-                projects = new Dictionary<string, BuildActionValue>();
-                data.Add(action, projects);
-            }
-
-            if (!projects.TryGetValue(projectName, out var result))
-            {
-                result = new BuildActionValue();
-                projects.Add(projectName, result);
+                if (entry.State == BuildActionState.Unknown)
+                {
+                    entry.State = BuildActionState.Success;
+                    result.Add(TranslateToCurrentSnapshot(entry.Span));
+                }
             }
 
             return result;
         }
 
-        private void SetLatestProject(string action, string projectName, int? buildTaskId)
+        private BuildActionEntry FindPrecedingEntry(int position, int? buildTaskId)
         {
-            if (buildTaskId is null)
+            BuildActionEntry best = null;
+            foreach (var entry in entries.Values)
             {
-                latestProjects[action] = projectName;
-                return;
+                if (entry.Position > position)
+                {
+                    continue;
+                }
+
+                if (buildTaskId is not null && entry.BuildTaskId != buildTaskId)
+                {
+                    continue;
+                }
+
+                if (best is null || entry.Position > best.Position)
+                {
+                    best = entry;
+                }
             }
 
-            if (!latestParallelProjects.TryGetValue(action, out var projects))
-            {
-                projects = new Dictionary<int, string>();
-                latestParallelProjects.Add(action, projects);
-            }
+            return best;
+        }
 
-            projects[buildTaskId.Value] = projectName;
+        private static SnapshotSpan TranslateToCurrentSnapshot(SnapshotSpan span)
+        {
+            var currentSnapshot = span.Snapshot.TextBuffer.CurrentSnapshot;
+            return span.Snapshot == currentSnapshot
+                ? span
+                : span.TranslateTo(currentSnapshot, SpanTrackingMode.EdgeExclusive);
         }
     }
 }

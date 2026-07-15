@@ -88,10 +88,7 @@ namespace Balakin.VSOutputEnhancer.Tests.Base.Stubs
 
         public IContentType ContentType { get; }
 
-        public ITextSnapshot CurrentSnapshot
-        {
-            get { throw new NotImplementedException(); }
-        }
+        public ITextSnapshot CurrentSnapshot { get; set; }
 
         public bool EditInProgress
         {
