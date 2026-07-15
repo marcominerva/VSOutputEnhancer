@@ -1,4 +1,17 @@
 ﻿{
+  "BuildActionStartedError": {
+    "ForegroundColor": "#BF0606",
+    "Bold": true
+  },
+  "BuildActionStartedSuccess": {
+    "ForegroundColor": "#409A3A",
+    "Bold": true
+  },
+  "BuildActionStartedWarning": {
+    "ForegroundColor": "#D0A825",
+    "Bold": true
+  },
+
   "BuildMessageError": {
     "ForegroundColor": "#BF0606"
   },

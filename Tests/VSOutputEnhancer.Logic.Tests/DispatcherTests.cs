@@ -22,7 +22,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
 
             public int InvocationCount { get; private set; }
 
-            public void Handle(TEvent @event) => InvocationCount++;
+            public void Handle(IDispatcher dispatcher, DataContainer data, TEvent @event) => InvocationCount++;
         }
 
         [Fact]
@@ -41,7 +41,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
             dispatcher.AddHandler(handler);
 
             var @event = new TestEvent();
-            dispatcher.Dispatch(@event);
+            dispatcher.Dispatch(@event, new DataContainer());
 
             handler.InvocationCount.Should().Be(1);
         }
@@ -57,7 +57,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
             dispatcher.AddHandler(anotherHandler);
 
             var @event = new TestEvent();
-            dispatcher.Dispatch(@event);
+            dispatcher.Dispatch(@event, new DataContainer());
 
             handler.InvocationCount.Should().Be(1);
             anotherHandler.InvocationCount.Should().Be(0);
@@ -75,7 +75,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests
             dispatcher.AddHandler(secondHandler);
 
             var @event = new TestEvent();
-            dispatcher.Dispatch(@event);
+            dispatcher.Dispatch(@event, new DataContainer());
 
             firstHandler.InvocationCount.Should().Be(1);
             secondHandler.InvocationCount.Should().Be(1);

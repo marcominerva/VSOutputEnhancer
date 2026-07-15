@@ -14,13 +14,15 @@ namespace Balakin.VSOutputEnhancer.Logic
         private readonly IDispatcher dispatcher = dispatcher;
         private readonly IReadOnlyCollection<ISpanClassifier> spanClassifiers = spanClassifiers;
         private readonly IClassificationTypeService classificationTypeService = classificationTypeService;
+        private readonly DataContainer data = new();
+        private EventHandler<ClassificationChangedEventArgs> classificationChanged;
 
         public IList<ClassificationSpan> GetClassificationSpans(SnapshotSpan span)
         {
             var result = new List<ClassificationSpan>();
             foreach (var classifier in spanClassifiers)
             {
-                var classifierResult = classifier.Classify(span, dispatcher);
+                var classifierResult = classifier.Classify(span, dispatcher, data);
                 var classificationSpans = classifierResult.Select(r => CreateClassificationSpan(span, r));
                 result.AddRange(classificationSpans);
             }
@@ -30,8 +32,16 @@ namespace Balakin.VSOutputEnhancer.Logic
 
         public event EventHandler<ClassificationChangedEventArgs> ClassificationChanged
         {
-            add { }
-            remove { }
+            add
+            {
+                classificationChanged += value;
+                data.Set(classificationChanged);
+            }
+            remove
+            {
+                classificationChanged -= value;
+                data.Set(classificationChanged);
+            }
         }
 
         private ClassificationSpan CreateClassificationSpan(SnapshotSpan originalSpan, ProcessedParsedData data)

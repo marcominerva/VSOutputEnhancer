@@ -13,7 +13,7 @@ public class BuildResultClassifier(IParser<BuildResultData> parser) : ParserBase
         ContentType.BuildOrderOutput
     ];
 
-    protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, BuildResultData parsedData)
+    protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, BuildResultData parsedData, DataContainer data)
     {
         var classificationType = parsedData.Outcome switch
         {

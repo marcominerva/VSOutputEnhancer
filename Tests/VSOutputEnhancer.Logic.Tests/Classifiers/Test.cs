@@ -29,7 +29,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers
             var dispatcher = Substitute.For<IDispatcher>();
 
             var span = testCase.Input.ToSnapshotSpan();
-            var actualResult = classifier.Classify(span, dispatcher).ToList();
+            var actualResult = classifier.Classify(span, dispatcher, new DataContainer()).ToList();
 
             if (testCase.ExpectedResult == null)
             {

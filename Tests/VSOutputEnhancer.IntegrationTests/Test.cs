@@ -27,20 +27,26 @@ namespace Balakin.VSOutputEnhancer.IntegrationTests
             var classifier = classifierProvider.GetClassifier(new TextBufferStub(testCase.ContentType));
 
             var actualResult = new List<ClassifiedText>();
+            classifier.ClassificationChanged += (_, e) => AddClassificationSpans(classifier, e.ChangeSpan, actualResult);
             foreach (var line in testCase.SourceText)
             {
                 var snapshot = new TextSnapshotStub(line);
                 var span = new SnapshotSpan(snapshot, new Span(0, snapshot.Length));
-                var classificationSpans = classifier.GetClassificationSpans(span);
-                foreach (var classificationSpan in classificationSpans)
-                {
-                    var classifiedText = classificationSpan.Span.GetText();
-                    var classificationType = classificationSpan.ClassificationType.Classification;
-                    actualResult.Add(new ClassifiedText(classificationType, classifiedText));
-                }
+                AddClassificationSpans(classifier, span, actualResult);
             }
 
-            actualResult.Should().BeEquivalentTo(testCase.ExpectedResult);
+            actualResult.Should().Equal(testCase.ExpectedResult);
+        }
+
+        private static void AddClassificationSpans(IClassifier classifier, SnapshotSpan span, ICollection<ClassifiedText> result)
+        {
+            var classificationSpans = classifier.GetClassificationSpans(span);
+            foreach (var classificationSpan in classificationSpans)
+            {
+                var classifiedText = classificationSpan.Span.GetText();
+                var classificationType = classificationSpan.ClassificationType.Classification;
+                result.Add(new ClassifiedText(classificationType, classifiedText));
+            }
         }
 
         public static IEnumerable<object[]> EnumerateTestCases()

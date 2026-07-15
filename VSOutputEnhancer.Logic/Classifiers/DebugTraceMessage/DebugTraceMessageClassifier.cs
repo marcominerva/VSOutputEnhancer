@@ -15,7 +15,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugTraceMessage
             ContentType.DebugOutput,
         };
 
-        protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, DebugTraceMessageData parsedData)
+        protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, DebugTraceMessageData parsedData, DataContainer data)
         {
             var classificationType = GetClassificationType(parsedData.Type);
             if (string.IsNullOrEmpty(classificationType))

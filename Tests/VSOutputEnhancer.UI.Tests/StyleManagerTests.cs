@@ -34,6 +34,7 @@ namespace Balakin.VSOutputEnhancer.UI.Tests.UnitTests
 
             var error = new[]
             {
+                ClassificationType.BuildActionStartedError,
                 ClassificationType.BuildMessageError,
                 ClassificationType.BuildResultFailed,
                 ClassificationType.PublishResultFailed,
@@ -45,12 +46,14 @@ namespace Balakin.VSOutputEnhancer.UI.Tests.UnitTests
             };
             var warning = new[]
             {
+                ClassificationType.BuildActionStartedWarning,
                 ClassificationType.BuildMessageWarning,
                 ClassificationType.DebugTraceWarning,
                 ClassificationType.NpmMessageWarning
             };
             var success = new[]
             {
+                ClassificationType.BuildActionStartedSuccess,
                 ClassificationType.BuildResultSucceeded,
                 ClassificationType.PublishResultSucceeded,
                 ClassificationType.NpmResultSucceeded
