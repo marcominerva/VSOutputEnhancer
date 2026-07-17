@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Balakin.VSOutputEnhancer.Logic.Events;
 using Microsoft.VisualStudio.Text;
 
@@ -7,7 +6,7 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers;
 public abstract class ParserBasedSpanClassifier<TParsedData>(IParser<TParsedData> parser) : ISpanClassifier
     where TParsedData : ParsedData
 {
-    private static readonly IEnumerable<ProcessedParsedData> Empty = new ProcessedParsedData[0];
+    private static readonly IEnumerable<ProcessedParsedData> Empty = [];
 
     private readonly IParser<TParsedData> _parser = parser;
 

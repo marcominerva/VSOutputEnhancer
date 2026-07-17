@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using Microsoft.VisualStudio.Text;
 
@@ -9,10 +7,10 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugException;
 [method: ImportingConstructor]
 public class DebugExceptionClassifier(IParser<DebugExceptionData> parser) : ParserBasedSpanClassifier<DebugExceptionData>(parser)
 {
-    public override IEnumerable<string> ContentTypes { get; } = new[]
-    {
+    public override IEnumerable<string> ContentTypes { get; } =
+    [
         ContentType.DebugOutput,
-    };
+    ];
 
     protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, DebugExceptionData parsedData)
     {

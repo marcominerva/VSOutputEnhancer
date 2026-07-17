@@ -1,4 +1,3 @@
-using System;
 using Balakin.VSOutputEnhancer.Logic.Classifiers;
 
 namespace Balakin.VSOutputEnhancer.Logic.Tests.Parsers

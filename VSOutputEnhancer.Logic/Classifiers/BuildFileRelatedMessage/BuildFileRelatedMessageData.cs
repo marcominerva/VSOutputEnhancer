@@ -1,5 +1,3 @@
-using System;
-
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage;
 
 // TODO: Review accessibility level

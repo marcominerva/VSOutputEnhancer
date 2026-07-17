@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Diagnostics;
 using Microsoft.VisualStudio.Text;
@@ -10,10 +8,10 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugTraceMessage;
 [method: ImportingConstructor]
 public class DebugTraceMessageClassifier(IParser<DebugTraceMessageData> parser) : ParserBasedSpanClassifier<DebugTraceMessageData>(parser)
 {
-    public override IEnumerable<string> ContentTypes { get; } = new[]
-    {
+    public override IEnumerable<string> ContentTypes { get; } =
+    [
         ContentType.DebugOutput,
-    };
+    ];
 
     protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, DebugTraceMessageData parsedData)
     {
@@ -30,17 +28,12 @@ public class DebugTraceMessageClassifier(IParser<DebugTraceMessageData> parser) 
 
     private string GetClassificationType(TraceEventType eventType)
     {
-        switch (eventType)
+        return eventType switch
         {
-            case TraceEventType.Critical:
-            case TraceEventType.Error:
-                return ClassificationType.DebugTraceError;
-            case TraceEventType.Warning:
-                return ClassificationType.DebugTraceWarning;
-            case TraceEventType.Information:
-                return ClassificationType.DebugTraceInformation;
-            default:
-                return null;
-        }
+            TraceEventType.Critical or TraceEventType.Error => ClassificationType.DebugTraceError,
+            TraceEventType.Warning => ClassificationType.DebugTraceWarning,
+            TraceEventType.Information => ClassificationType.DebugTraceInformation,
+            _ => null,
+        };
     }
 }

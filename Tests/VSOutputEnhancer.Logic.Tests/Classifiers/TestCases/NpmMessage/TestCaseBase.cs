@@ -1,10 +1,5 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage;
+﻿using System.Diagnostics.CodeAnalysis;
 using Balakin.VSOutputEnhancer.Logic.Classifiers.NpmMessage;
-using Balakin.VSOutputEnhancer.Tests.Base.Stubs;
-using Microsoft.VisualStudio.Text.Classification;
-using Xunit;
 
 namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers.TestCases.NpmMessage
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugTraceMessage;
 

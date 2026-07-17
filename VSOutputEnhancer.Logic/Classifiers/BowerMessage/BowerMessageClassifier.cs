@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using Microsoft.VisualStudio.Text;
 
@@ -9,10 +7,10 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.BowerMessage;
 [method: ImportingConstructor]
 public class BowerMessageClassifier(IParser<BowerMessageData> parser) : ParserBasedSpanClassifier<BowerMessageData>(parser)
 {
-    public override IEnumerable<string> ContentTypes { get; } = new[]
-    {
+    public override IEnumerable<string> ContentTypes { get; } =
+    [
         ContentType.Output
-    };
+    ];
 
     protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, BowerMessageData parsedData)
     {
@@ -27,12 +25,10 @@ public class BowerMessageClassifier(IParser<BowerMessageData> parser) : ParserBa
 
     private string GetClassificationType(MessageType messageType)
     {
-        switch (messageType)
+        return messageType switch
         {
-            case MessageType.Error:
-                return ClassificationType.BowerMessageError;
-            default:
-                return null;
-        }
+            MessageType.Error => ClassificationType.BowerMessageError,
+            _ => null,
+        };
     }
 }

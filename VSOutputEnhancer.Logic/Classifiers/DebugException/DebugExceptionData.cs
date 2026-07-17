@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugException;
+﻿namespace Balakin.VSOutputEnhancer.Logic.Classifiers.DebugException;
 
 // TODO: Review accessibility level
 public class DebugExceptionData : ParsedData

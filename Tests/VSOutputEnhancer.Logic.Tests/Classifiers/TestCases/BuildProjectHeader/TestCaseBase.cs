@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Balakin.VSOutputEnhancer.Logic.Classifiers;
 using Balakin.VSOutputEnhancer.Logic.Classifiers.BuildProjectHeader;
 
 namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers.TestCases.BuildProjectHeader

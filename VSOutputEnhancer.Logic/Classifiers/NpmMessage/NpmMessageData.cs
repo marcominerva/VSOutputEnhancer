@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.Text;
 
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers.NpmMessage;

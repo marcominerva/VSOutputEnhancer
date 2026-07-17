@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Balakin.VSOutputEnhancer.Logic.Classifiers;
+﻿namespace Balakin.VSOutputEnhancer.Logic.Classifiers;
 
 // TODO: Review accessibility level
 [AttributeUsage(AttributeTargets.Field, AllowMultiple = true)]

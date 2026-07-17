@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Balakin.VSOutputEnhancer.Logic;
+﻿namespace Balakin.VSOutputEnhancer.Logic;
 
 public static class ContentType
 {

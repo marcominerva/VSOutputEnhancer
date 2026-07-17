@@ -1,5 +1,3 @@
-using System;
-
 namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers
 {
     public interface ITestCase

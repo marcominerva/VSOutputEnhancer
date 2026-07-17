@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Balakin.VSOutputEnhancer.Logic.Tests.Classifiers.TestCases.DebugException

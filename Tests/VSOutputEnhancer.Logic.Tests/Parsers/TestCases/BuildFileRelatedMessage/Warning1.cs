@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 using Balakin.VSOutputEnhancer.Logic.Classifiers;
 using Balakin.VSOutputEnhancer.Logic.Classifiers.BuildFileRelatedMessage;

@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using Microsoft.VisualStudio.Text;
 
@@ -9,12 +7,12 @@ namespace Balakin.VSOutputEnhancer.Logic.Classifiers.NpmMessage;
 [method: ImportingConstructor]
 public class NpmMessageClassifier(IParser<NpmMessageData> parser) : ParserBasedSpanClassifier<NpmMessageData>(parser)
 {
-    public override IEnumerable<string> ContentTypes { get; } = new[]
-    {
+    public override IEnumerable<string> ContentTypes { get; } =
+    [
         ContentType.Output,
         ContentType.BuildOutput,
         ContentType.BuildOrderOutput
-    };
+    ];
 
     protected override IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, NpmMessageData parsedData)
     {

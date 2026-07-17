@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Balakin.VSOutputEnhancer.Logic.Classifiers.NpmResult;
+﻿namespace Balakin.VSOutputEnhancer.Logic.Classifiers.NpmResult;
 
 // TODO: Review accessibility level
 public class NpmResultData : ParsedData

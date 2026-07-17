@@ -1,4 +1,3 @@
-using System;
 using System.ComponentModel.Composition;
 using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.Text;

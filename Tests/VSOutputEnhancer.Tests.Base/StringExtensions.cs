@@ -1,4 +1,3 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
 using Balakin.VSOutputEnhancer.Tests.Base.Stubs;
 using Microsoft.VisualStudio.Text;

@@ -1,5 +1,3 @@
-using System;
-
 namespace Balakin.VSOutputEnhancer.Logic.Classifiers.PublishResult;
 
 public class PublishResultData : ParsedData
