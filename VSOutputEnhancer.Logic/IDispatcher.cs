@@ -1,7 +1,6 @@
-namespace Balakin.VSOutputEnhancer.Logic
+namespace Balakin.VSOutputEnhancer.Logic;
+
+public interface IDispatcher
 {
-    public interface IDispatcher
-    {
-        void Dispatch(IEvent @event);
-    }
+    void Dispatch(IEvent @event);
 }

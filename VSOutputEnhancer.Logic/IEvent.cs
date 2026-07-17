@@ -1,6 +1,5 @@
-namespace Balakin.VSOutputEnhancer.Logic
+namespace Balakin.VSOutputEnhancer.Logic;
+
+public interface IEvent
 {
-    public interface IEvent
-    {
-    }
 }

@@ -1,10 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.Text;
 
-namespace Balakin.VSOutputEnhancer.Logic.Classifiers
+namespace Balakin.VSOutputEnhancer.Logic.Classifiers;
+
+public interface IParser<T> where T : ParsedData
 {
-    public interface IParser<T> where T : ParsedData
-    {
-        bool TryParse(SnapshotSpan span, out T result);
-    }
+    bool TryParse(SnapshotSpan span, out T result);
 }

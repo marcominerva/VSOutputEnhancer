@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.Text;
 
-namespace Balakin.VSOutputEnhancer.Logic
+namespace Balakin.VSOutputEnhancer.Logic;
+
+public interface ISpanClassifier
 {
-    public interface ISpanClassifier
-    {
-        IEnumerable<string> ContentTypes { get; }
-        IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, IDispatcher dispatcher);
-    }
+    IEnumerable<string> ContentTypes { get; }
+    IEnumerable<ProcessedParsedData> Classify(SnapshotSpan span, IDispatcher dispatcher);
 }

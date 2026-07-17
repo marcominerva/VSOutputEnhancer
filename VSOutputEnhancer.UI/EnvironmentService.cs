@@ -3,64 +3,63 @@ using System.Windows.Media;
 using Microsoft.VisualStudio.Text.Classification;
 using Microsoft.VisualStudio.Text.Formatting;
 
-namespace Balakin.VSOutputEnhancer.UI
+namespace Balakin.VSOutputEnhancer.UI;
+
+[Export(typeof(IEnvironmentService))]
+[method: ImportingConstructor]
+public class EnvironmentService(IClassificationFormatMapService classificationFormatMapService) : IEnvironmentService
 {
-    [Export(typeof(IEnvironmentService))]
-    [method: ImportingConstructor]
-    public class EnvironmentService(IClassificationFormatMapService classificationFormatMapService) : IEnvironmentService
+    private readonly IClassificationFormatMapService classificationFormatMapService = classificationFormatMapService;
+
+    public Theme GetTheme()
     {
-        private readonly IClassificationFormatMapService classificationFormatMapService = classificationFormatMapService;
-
-        public Theme GetTheme()
+        // I don't want to reference many of COM libraries to get current VS theme
+        // so I'm trying to get recognize it from current format settings
+        var formatMap = classificationFormatMapService.GetClassificationFormatMap("output");
+        var theme = GetThemeFromTextProperties(formatMap.DefaultTextProperties);
+        if (theme != null)
         {
-            // I don't want to reference many of COM libraries to get current VS theme
-            // so I'm trying to get recognize it from current format settings
-            var formatMap = classificationFormatMapService.GetClassificationFormatMap("output");
-            var theme = GetThemeFromTextProperties(formatMap.DefaultTextProperties);
-            if (theme != null)
-            {
-                return theme.Value;
-            }
-
-            // This code can be userd for 
-            // var literalClassificationType = formatMap.CurrentPriorityOrder.FirstOrDefault(c => c != null && c.Classification.Equals("literal", StringComparison.OrdinalIgnoreCase));
-            // if (literalClassificationType != null) {
-            //     theme = GetThemeFromTextProperties(formatMap.GetTextProperties(literalClassificationType));
-            //     if (theme != null) {
-            //         return theme.Value;
-            //     }
-            // }
-
-            return Theme.Light;
+            return theme.Value;
         }
 
-        private Theme? GetThemeFromTextProperties(TextFormattingRunProperties properties)
+        // This code can be userd for 
+        // var literalClassificationType = formatMap.CurrentPriorityOrder.FirstOrDefault(c => c != null && c.Classification.Equals("literal", StringComparison.OrdinalIgnoreCase));
+        // if (literalClassificationType != null) {
+        //     theme = GetThemeFromTextProperties(formatMap.GetTextProperties(literalClassificationType));
+        //     if (theme != null) {
+        //         return theme.Value;
+        //     }
+        // }
+
+        return Theme.Light;
+    }
+
+    private Theme? GetThemeFromTextProperties(TextFormattingRunProperties properties)
+    {
+        if (!properties.BackgroundBrushEmpty)
         {
-            if (!properties.BackgroundBrushEmpty)
+            var solidColorBrush = properties.BackgroundBrush as SolidColorBrush;
+            if (solidColorBrush != null)
             {
-                var solidColorBrush = properties.BackgroundBrush as SolidColorBrush;
-                if (solidColorBrush != null)
+                if (solidColorBrush.Color.GetLightness() < 0.5)
                 {
-                    if (solidColorBrush.Color.GetLightness() < 0.5)
-                    {
-                        return Theme.Dark;
-                    }
-                    return Theme.Light;
-                }
-            }
-            if (!properties.ForegroundBrushEmpty)
-            {
-                var solidColorBrush = properties.ForegroundBrush as SolidColorBrush;
-                if (solidColorBrush != null)
-                {
-                    if (solidColorBrush.Color.GetLightness() < 0.5)
-                    {
-                        return Theme.Light;
-                    }
                     return Theme.Dark;
                 }
+                return Theme.Light;
             }
-            return null;
         }
+        if (!properties.ForegroundBrushEmpty)
+        {
+            var solidColorBrush = properties.ForegroundBrush as SolidColorBrush;
+            if (solidColorBrush != null)
+            {
+                if (solidColorBrush.Color.GetLightness() < 0.5)
+                {
+                    return Theme.Light;
+                }
+                return Theme.Dark;
+            }
+        }
+        return null;
     }
 }

@@ -1,8 +1,7 @@
-namespace Balakin.VSOutputEnhancer.UI
+namespace Balakin.VSOutputEnhancer.UI;
+
+public enum Theme
 {
-    public enum Theme
-    {
-        Light,
-        Dark
-    }
+    Light,
+    Dark
 }

@@ -1,7 +1,6 @@
-namespace Balakin.VSOutputEnhancer.UI
+namespace Balakin.VSOutputEnhancer.UI;
+
+public interface IStyleManager
 {
-    public interface IStyleManager
-    {
-        FormatDefinitionStyle GetStyleForClassificationType(string classificationType);
-    }
+    FormatDefinitionStyle GetStyleForClassificationType(string classificationType);
 }

@@ -1,9 +1,8 @@
 using Microsoft.VisualStudio.Text.Classification;
 
-namespace Balakin.VSOutputEnhancer.Logic
+namespace Balakin.VSOutputEnhancer.Logic;
+
+public interface IClassificationTypeService
 {
-    public interface IClassificationTypeService
-    {
-        IClassificationType GetClassificationType(string name);
-    }
+    IClassificationType GetClassificationType(string name);
 }

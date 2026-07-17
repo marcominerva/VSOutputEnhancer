@@ -1,7 +1,6 @@
-﻿namespace Balakin.VSOutputEnhancer.UI
+﻿namespace Balakin.VSOutputEnhancer.UI;
+
+public interface IEnvironmentService
 {
-    public interface IEnvironmentService
-    {
-        Theme GetTheme();
-    }
+    Theme GetTheme();
 }
